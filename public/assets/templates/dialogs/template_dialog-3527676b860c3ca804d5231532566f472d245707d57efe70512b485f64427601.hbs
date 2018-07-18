@@ -1,0 +1,18 @@
+<table class="schema-list">
+	<thead>
+	<tr>
+	<th>{{t 'dialog.templates_schema_name'}}</th>
+	<th>{{t 'dialog.templates_database'}}</th>
+	<th>{{t 'dialog.templates_description'}}</th>
+	</tr>
+	</thead>
+	<tbody>
+	{{#schemas}}
+	<tr>
+		<td><a href="/schema/{{ id }}">{{ title }}</a></td>
+		<td>{{ database }}</td>
+		<td>{{ description }}</td>
+	</tr>
+	{{/schemas}}
+	</tbody>
+</table>

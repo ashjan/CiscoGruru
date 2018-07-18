@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: user_schemas
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  schema_id   :integer
+#  access_mode :integer          default(0)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: kedibasi
+  schema: shared_schema
+  access_mode: 1
+
+two:
+  user: efe
+  schema: shared_schema
+  access_mode: 1

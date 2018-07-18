@@ -1,0 +1,77 @@
+<td colspan=4 class=rightmost>
+<div class="edit-panel">
+    <span class="dummy dummy-down" tabindex="1"></span>
+    <label for="field-name" data-lang-text="designer.field_name">{{t 'designer.field_name'}}</label>
+    <input type="text"
+           name="field-name"
+           class="field-name" value="{{ name }}"
+           tabindex="2" />
+    <br>
+
+    <label data-lang-text="designer.field_type">{{t 'designer.field_type'}}</label>
+    <select class="field-type"
+            name="field-type"
+            tabindex="3">
+    {{#datatypes}}
+      <option value="{{name}}">{{name}}</option>
+    {{/datatypes}}
+    </select>
+    <br>
+
+    <label for="field-size" data-lang-text="designer.field_size">{{t 'designer.field_size'}}</label>
+    <input type="text"
+           name="field-size"
+           class="field-size"
+           value="{{ size }}"
+           tabindex="4">
+    <br>
+
+    <label for="" data-lang-text="designer.field_default">{{t 'designer.field_default'}}</label>
+    <input type="text"
+           name="field-default"
+           class="field-default"
+           value="{{ default_value }}"
+           tabindex="5">
+    <br>
+
+    <label class="cb-label">
+      <input type="checkbox" name="field-pk" class="checkbox field-pk" tabindex="6"><span data-lang-text="designer.field_primary_key">{{t 'designer.field_primary_key'}}</span>
+    </label>
+    <br>
+
+    <label class="cb-label">
+      <input type="checkbox" name="field-null" class="checkbox field-null" tabindex="7"><span data-lang-text="designer.field_allow_nulls">{{t 'designer.field_allow_nulls'}}</span>
+    </label>
+    <br>
+
+    <label class="cb-label">
+      <input type="checkbox" name="field-unique" class="checkbox field-unique" tabindex="8"><span data-lang-text="designer.field_unique">{{t 'designer.field_unique'}}</span>
+    </label>
+    <br>
+
+    <label class="cb-label">
+      <input type="checkbox" name="field-ai" class="checkbox field-ai" tabindex="9"><span data-lang-text="designer.field_autoincrement">{{t 'designer.field_autoincrement'}}</span>
+    </label>
+    <br>
+
+    <label class="cb-label">
+      <input type="checkbox" name="field-fk" class="checkbox field-fk" tabindex="10"><span data-lang-text="designer.field_foreign_key">{{t 'designer.field_foreign_key'}}</span>
+    </label>
+    <br>
+
+    <div class="refs"></div>
+    <br>
+
+    <input type="button"
+           value="{{t 'designer.field_update'}}"
+           class="btn entity-btn save-button"
+           tabindex="0" />
+    <span class="cancel-save action"
+          data-lang-text="designer.field_cancel"
+          tabindex="0">{{t 'designer.field_cancel'}}</span>
+    <span class="delete-field action danger"
+          data-lang-text="designer.field_delete"
+          tabindex="0">{{t 'designer.field_delete'}}</span>
+    <span class="dummy dummy-up" tabindex="0"></span>
+</div>
+</td>

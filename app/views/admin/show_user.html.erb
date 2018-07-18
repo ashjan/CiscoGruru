@@ -1,0 +1,255 @@
+<style>
+td:first-child {
+  width: 1%;
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+}
+</style>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    User <%= @user.id %>
+    <div class="btn-group pull-right" role="group">
+      <%= link_to 'Login as User', admin_ghost_path(@user.id), class: "btn btn-default btn-xs", target: "_blank" %>
+      <%= link_to 'Toggle Translator', admin_set_translator_path(@user.id), class: "btn btn-default btn-xs" %>
+      <%= link_to 'Delete', admin_ghost_path(@user.id), class: "btn btn-danger btn-xs", target: "_blank" %>
+    </div>
+  </div>
+  <table class="table">
+    <tbody>
+      <% if @user.image %>
+        <tr>
+          <td></td>
+          <td>
+            <img src="<%= @user.image %>" width="64" />
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td>Account Type</td>
+        <td>
+          <%= @user.account.name %>
+          <% if @user.newsletter_subscription? %>
+            <span class="label label-default">Newsletter</span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Limits:</td>
+        <td>
+          <%= @user.own_schemas.count %> / <%= @user.account.schemata_limit %>
+        </td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td><%= @user.username %></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>Created at</td>
+        <td><%= l(@user.created_at, format: :full) %></td>
+      </tr>
+      <% unless @language.nil? %>
+      <tr>
+        <td>Language</td>
+        <td><%= @language %></td>
+      </tr>
+      <% end %>
+      <% @user.oauth_profiles.each do |profile| %>
+        <tr>
+          <td>Provider</td>
+          <td><%= profile.provider_str %></td>
+        </tr>
+        <tr>
+          <td>Uid</td>
+          <td><%= profile.uid %></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><%= profile.username %></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><%= profile.email %></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><%= profile.firstname %> <%= profile.lastname %></td>
+        </tr>
+        <tr>
+          <td>Created</td>
+          <td><%= l(profile.created_at, format: :full) %></td>
+        </tr>
+        <tr>
+          <td>Updated</td>
+          <td><%= l(profile.updated_at, format: :full) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped table-condensed">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Database</th>
+        <th>Description</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+        <th>Versions</th>
+        <th>Users</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.own_schemas.each do |schema| %>
+        <tr>
+          <td><%= schema.id %></td>
+          <td>
+            <%= schema.title %>
+            <% if schema.template? %><span class="label label-default">Template</span><% end %>
+            <% if schema.deleted? %><span class="label label-danger">Deleted</span><% end %>
+          </td>
+          <td><span class="label label-default"><%= schema.db %></span></td>
+          <td><%= schema.description %></td>
+          <td><%= l(schema.created_at, format: :full) %></td>
+          <td><%= l(schema.updated_at, format: :full) %></td>
+          <td><%= schema.schema_versions.count %></td>
+          <td><%= schema.users.count %></td>
+          <td>
+            <a href="/designer/schema/<%= schema.id %>?readonly=true" class="btn btn-xs btn-default" target="_blank">View Schema</a>
+            <a href="/yonetim/schema/<%= schema.id %>" class="btn btn-xs btn-default">Details</a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if @collab_schemata.count > 0 %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Collabrated Schemata
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped table-condensed">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Owner</th>
+          <th>Title</th>
+          <th>Database</th>
+          <th>Created at</th>
+          <th>Updated at</th>
+          <th>Versions</th>
+          <th>Users</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @collab_schemata.each do |schema| %>
+            <tr>
+              <td><%= schema.id %></td>
+              <td><%= link_to schema.owner.username, "/yonetim/user/#{schema.owner.id}" %></td>
+              <td>
+                <%= schema.title %>
+                <% if schema.template? %><span class="label label-default">Template</span><% end %>
+                <% if schema.deleted? %><span class="label label-danger">Deleted</span><% end %>
+              </td>
+              <td><span class="label label-default"><%= schema.db %></span></td>
+              <td><%= l(schema.created_at, format: :full) %></td>
+              <td><%= l(schema.updated_at, format: :full) %></td>
+              <td><%= schema.schema_versions.count %></td>
+              <td><%= schema.users.count %></td>
+              <td>
+                <a href="/designer/schema/<%= schema.id %>?readonly=true" class="btn btn-xs btn-default" target="_blank">View Schema</a>
+                <a href="/yonetim/schema/<%= schema.id %>" class="btn btn-xs btn-default">Details</a>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+Logins:
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Login Time</th>
+        <th>Ip Address</th>
+        <th>Browser</th>
+        <th>Version</th>
+        <th>Platform</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.logins.order(:logintime => :desc).each do |login| %>
+        <tr>
+          <td><%= login.logintime %></td>
+          <td><a href="http://www.ip2location.com/<%= login.ip %>" target="_blank"><%= login.ip %></a></td>
+          <td><%= login.browser %></td>
+          <td><%= login.version %></td>
+          <td><%= login.platform %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if @user.payments.count > 0 %>
+  Payments:<br>
+  <table class="table table-bordered">
+    <tbody>
+      <% @user.payments.each do |payment| %>
+        <tr>
+            <td><%= payment.id %></td>
+            <td><span style="white-space: nowrap"><%= link_to payment.user.username, "/yonetim/user/#{payment.user.id}" %></span></td>
+            <td><%= payment.country %></td>
+            <td><%= payment.sale_gross %> <%= payment.currency %></td>
+            <td><%= payment.fee %> <%= payment.currency %></td>
+            <td><%= payment.payment_tax %> <%= payment.currency %></td>
+            <td><%= payment.earnings %> <%= payment.currency %></td>
+            <td><span style="white-space: nowrap"><%= l(payment.created_at, format: :full) %></span></td>
+            <td><%= payment.next_bill_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @user.feedbacks.count > 0 %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Feedbacks
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tbody>
+        <% @user.feedbacks.each do |feedback| %>
+          <tr>
+            <td><strong><%= feedback.subject %></strong></td>
+            <td>
+              <span><%= l(feedback.created_at) %><br>
+                <%= feedback.short_agent_info %></span>
+            </td>
+            <td><%= simple_format feedback.message %></td>
+            <td>
+              <% if feedback.answered? %><span class="label label-default">Answered</span><% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% end %>
+

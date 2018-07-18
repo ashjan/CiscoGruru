@@ -1,0 +1,55 @@
+<span class="dialog-table-caption">{{t 'dialog.load_schema_your_schemas'}}</span>
+<table class="schema-list">
+	<thead>
+	<tr>
+		<th>{{t 'dialog.load_schema_schema_name'}}</th>
+		<th>{{t 'dialog.load_schema_database'}}</th>
+		<th>{{t 'dialog.load_schema_last_save'}}</th>
+	</tr>
+	</thead>
+	<tbody>
+	{{#unless schemas}}
+	<tr>
+		<td colspan="3">
+			<span class="table-message">{{t 'dialog.load_schema_no_schemas'}}</span>
+		</td>
+	</tr>
+	{{/unless}}
+	{{#schemas}}
+	<tr>
+		<td><a href="/schema/{{ id }}">{{ title }}</a></td>
+		<td><span class="label-default">{{ database }}</span></td>
+		<td>{{ epochsToLocalTime updated_at }}</td>
+	</tr>
+	{{/schemas}}
+	</tbody>
+</table>
+
+<br>
+
+<span class="dialog-table-caption">{{t 'dialog.load_schema_shared_with_you'}}</span>
+<table class="schema-list">
+	<thead>
+	<tr>
+		<th>{{t 'dialog.load_schema_schema_name'}}</th>
+		<th>{{t 'dialog.load_schema_owner'}}</th>
+		<th>{{t 'dialog.load_schema_last_save'}}</th>
+	</tr>
+	</thead>
+	<tbody>
+	{{#unless shared_schemas}}
+	<tr>
+		<td colspan="3">
+			<span class="table-message">{{t 'dialog.load_schema_no_shared_schemas'}}</span>
+		</td>
+	</tr>
+	{{/unless}}
+	{{#shared_schemas}}
+	<tr>
+		<td><a href="/schema/{{ id }}">{{ title }}</a></td>
+		<td>{{ owner }}</td>
+		<td>{{ epochsToLocalTime updated_at }}</td>
+	</tr>
+	{{/shared_schemas}}
+	</tbody>
+</table>

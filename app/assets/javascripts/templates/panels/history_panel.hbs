@@ -1,0 +1,9 @@
+<div class="panel-header">
+	<i class="icon-down-open"></i>
+	<span class="panel-caption" data-lang-text="panel.history">{{t 'panel.history'}}</span>
+</div>
+<div class="panel-body">
+	{{#versions}}
+		<span class="action" data-version-id="{{id}}">{{epochsToLocalTime created_at}}</span><br>
+	{{/versions}}
+</div>

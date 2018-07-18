@@ -1,0 +1,41 @@
+<thead>
+    <tr class="caption">
+        <th class="table-name" colspan="3">{{ table_name }}</th>
+        <th class="table-ops">
+            <img src="{{ table_edit_image }}"
+                 alt="Edit table properties" class="edit-table" />
+        </th>
+    </tr>
+    <tr class="comment">
+        <th class="table-comment" colspan="4"><textarea readonly="readonly" class="table-comment-box">{{ table_comment }}</textarea></th>
+    </tr>
+    <tr class="edit-table">
+      <th colspan=4>
+        <span class="dummy dummy-down" tabindex="0"></span>
+        <label for="table-name" data-lang-text="designer.table_name">{{t 'designer.table_name'}}</label>
+        <input type="text"
+               name="table-name" value="{{ table_name }}" class="table-name">
+        <br>
+        <label for="table-comment" data-lang-text="designer.table_comment">{{t 'designer.table_comment'}}</label>
+        <textarea class="table-comment" rows="4">{{ table_comment }}</textarea>
+        <br>
+        <br>
+        <input type="button" data-lang-value="designer.table_save" value="{{t 'designer.table_save'}}" class="save-edit-table btn">
+        <span class="action cancel-edit-table" data-lang-text="designer.table_cancel" tabindex="0">{{t 'designer.table_cancel'}}</span>
+        <span class="action delete-table danger" data-lang-text="designer.table_delete" tabindex="0">{{t 'designer.table_delete'}}</span>
+        <span class="dummy dummy-up" tabindex="0"></span>
+      </th>
+    </tr>
+</thead>
+<tbody>
+</tbody>
+<tfoot>
+    <tr>
+        <td colspan="4">
+            <div class="operations">
+                <img src="{{ table_new_row_image }}" alt="" />
+                <span class="insert-field action" data-lang-text="designer.table_add_field">{{t 'designer.table_add_field'}}</span>
+            </div>
+        </td>
+    </tr>
+</tfoot>

@@ -1,0 +1,45 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped table-condensed">
+    <thead>
+      <tr>
+        <%= sortable_header 'id', 'id' %>
+        <th>Title</th>
+        <%= sortable_header 'Database', 'db' %>
+        <%= sortable_header 'User', 'owner_id' %>
+        <th>Description</th>
+        <%= sortable_header 'Created at', 'created_at' %>
+        <%= sortable_header 'Updated at', 'updated_at' %>
+        <%= sortable_header 'Versions', 'schema_versions_count' %>
+        <th>Users</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schemata.each do |schema| %>
+        <tr>
+          <td><%= schema.id %></td>
+          <td>
+            <%= schema.title %>
+            <% if schema.template? %><span class="label label-default">Template</span><% end %>
+            <% if schema.deleted? %><span class="label label-danger">Deleted</span><% end %>
+          </td>
+          <td><span class="label label-default"><%= schema.db %></span></td>
+          <td><%= link_to schema.owner.username, "/yonetim/user/#{schema.owner.id}" %></td>
+          <td>
+            <%= schema.description %>
+            <%= ", #{schema.schema_comments.count} comments" if schema.schema_comments.count > 0 %>
+          </td>
+          <td><%= l(schema.created_at, format: :full) %></td>
+          <td><%= l(schema.updated_at, format: :full) %></td>
+          <td><%= schema.schema_versions.count %></td>
+          <td><%= schema.users.count %></td>
+          <td>
+            <a href="/designer/schema/<%= schema.id %>?readonly=true" class="btn btn-xs btn-default" target="_blank">Open</a>
+            <a href="/yonetim/schema/<%= schema.id %>" class="btn btn-xs btn-default">Details</a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @schemata %>

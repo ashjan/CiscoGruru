@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: oauth_profiles
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  provider   :string
+#  uid        :string
+#  token      :string
+#  secret     :string
+#  username   :string
+#  email      :string
+#  firstname  :string
+#  lastname   :string
+#  image_url  :string
+#  data       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cenan_github:
+  user: cenan
+  provider: github
+  uid: cenan
+  token: 1234
+  secret: 1234
+  username: cenan
+  email: me@cenanozen.com
+  firstname: cenan
+  lastname: ozen
+  image_url: avatar.com/cenan

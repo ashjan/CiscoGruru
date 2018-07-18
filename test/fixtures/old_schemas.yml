@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: old_schemas
+#
+#  id          :integer          not null, primary key
+#  oldid       :integer
+#  schema_id   :integer
+#  import_date :datetime
+#  username    :string
+#  name        :string
+#  template    :boolean          default(FALSE)
+#  db          :string
+#  schema_data :string
+#  imported    :boolean          default(FALSE)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oldid: 1
+  schema_id: 
+  import_date: 2015-05-11 22:20:54
+  username: MyString
+  name: MyString
+  template: false
+  db: MyString
+  schema_data: MyString
+  imported: false
+
+two:
+  oldid: 1
+  schema_id: 
+  import_date: 2015-05-11 22:20:54
+  username: MyString
+  name: MyString
+  template: false
+  db: MyString
+  schema_data: MyString
+  imported: false

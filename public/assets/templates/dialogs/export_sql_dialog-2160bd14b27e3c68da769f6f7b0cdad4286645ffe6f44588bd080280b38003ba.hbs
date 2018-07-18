@@ -1,0 +1,38 @@
+<div class="horizontal-form">
+	<div class="dialog-page sql-config">
+		<div class="field">
+			<label for="export-sql-database" class="control-label">Database</label>
+			<select id="export-sql-database" autofocus>
+				<option value="mysql">MySQL</option>
+				<option value="mssql">MS SQL Server</option>
+				<option value="sqlite">SQLite</option>
+				<option value="postgres">PostgreSQL</option>
+				<option value="oracle">Oracle</option>
+			</select>
+		</div>
+		<div class="field script-types-field">
+			<label class="checkbox-label">
+				<input type="radio" name="script-type" value="create" checked> Create script
+			</label><br>
+			<label class="checkbox-label">
+				<input type="radio" name="script-type" value="drop"> Drop script
+			</label>
+		</div>
+		<div class="field topspace">
+			<button class="generate btn">{{t 'dialog.export_sql_generate'}}</button>
+		</div>
+	</div>
+	<div class="dialog-page sql-output">
+		<div class="field">
+			<label class="control-label">Sql</label>
+			<pre class="sql"></pre>
+		</div>
+		<div class="field topspace">
+			<a class="download-sql btn">
+				<i class="icon-doc"></i>
+				{{t 'dialog.export_sql_download'}}
+			</a>
+			<span class="btn back-button">{{t 'dialog.back'}}</span>
+		</div>
+	</div>
+</div>

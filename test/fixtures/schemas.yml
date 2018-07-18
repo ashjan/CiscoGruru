@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table name: schemas
+#
+#  id                    :integer          not null, primary key
+#  title                 :string
+#  schema_data           :string
+#  owner_id              :integer
+#  created_at            :datetime
+#  updated_at            :datetime
+#  description           :text
+#  template              :boolean          default(FALSE)
+#  deleted               :boolean          default(FALSE)
+#  schema_versions_count :integer          default(0)
+#  db                    :string
+#
+
+one:
+  title: schema1
+  schema_data: ''
+  owner: cenan
+
+two:
+  title: schema2
+  schema_data: ''
+  owner: meral
+
+shared_schema:
+  title: Shared Schema 1
+  schema_data: ''
+  owner: cenan
+
+school_schema:
+  title: School Database
+  schema_data: '{"title": "school", "tables": [{"name": "students"}], "notes": []}'
+
+template_1:
+  title: Template 1
+  template: true
+
+template_2:
+  title: Template 2
+  template: true
+
+template_3:
+  title: Template 3
+  template: true
+
+template_4:
+  title: Template 4
+  template: true
+  deleted: true

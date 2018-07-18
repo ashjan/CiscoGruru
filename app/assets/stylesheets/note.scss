@@ -1,0 +1,43 @@
+@import "mixins/css3";
+@import "_variables";
+
+div.entity-note {
+  background-color: $note-bg-color;
+  border: 1px solid $note-border-color;
+  width: 180px;
+  height: 130px;
+  padding: 5px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  position: absolute;
+  font-family: 'source_sans_proregular', sans-serif;
+  font-size: 13px;
+  @include drop-shadow(2px, 2px, 10px, 0.5);
+  span.content {
+    white-space: pre-wrap;
+    line-height: 14px;
+  }
+  div.ops {
+    display: none;
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: #369;
+      }
+    }
+  }
+  textarea {
+    // initially hidden
+    display: none;
+    background-color: $note-textarea-bg-color;
+    border: 1px solid $note-textarea-border-color;
+  }
+  &.selected {
+    outline: $selection-outline-width $selection-outline-style $selection-outline-color;
+  }
+}
+
+body.rtl div.entity-note {
+  @include drop-shadow(-2px, 2px, 10px, 0.5);
+}

@@ -1,0 +1,30 @@
+<div class="horizontal-form">
+	<div class="field">
+		<label for="schema-title" class="control-label">{{t 'dialog.properties_title'}}</label>
+		<input type="text"
+			   value="{{ title }}"
+			   class="schema-title"
+			   id="schema-title"
+			   autofocus />
+	</div>
+	<div class="field">
+		<label for="save-as-template" class="checkbox-label">
+			<input type="checkbox"
+			       {{ isTemplate }}
+			       id="save-as-template" />
+		    <span>{{t 'dialog.properties_publish'}}</span>
+		</label>
+	</div>
+	<div class="info-text">
+		{{t 'dialog.properties_template_info'}}
+	</div>
+	<div class="field topspace">
+		<button class="btn btn-danger delete">{{t 'dialog.properties_delete_schema'}}</button>
+	</div>
+	<div class="info-text">
+		{{t 'dialog.properties_delete_alert'}}
+	</div>
+	<div class="field topspace">
+		<button class="btn save" default-button>{{t 'dialog.properties_save'}}</button>
+	</div>
+</div>

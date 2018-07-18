@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title if content_for? :title %>DB Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Easiest full-feature online database schema designer. Dbdesigner.net is UX friendly tool to create a database model and share it with your team. Generate SQL script with no coding or experience.">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "site", media: "all" %>
+  <%= javascript_include_tag "site"  %>
+  <%= csrf_meta_tags %>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://www.dbdesigner.net/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.dbdesigner.net/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.dbdesigner.net/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.dbdesigner.net/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://www.dbdesigner.net/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://www.dbdesigner.net/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://www.dbdesigner.net/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://www.dbdesigner.net/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://www.dbdesigner.net/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="https://www.dbdesigner.net/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="https://www.dbdesigner.net/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://www.dbdesigner.net/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="https://www.dbdesigner.net/favicon-128.png" sizes="128x128" />
+</head>
+<body>
+  <nav class="navbar navbar-default <% if @hide_navbar %>visible-xs<% end %>" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_path, class: "pull-left" do %>
+          <img src="/dbdesigner_logo_grid.png" style="max-width: 32px; margin-top: 8px; margin-left: 8px;">
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse"  id="bs-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/">DbDesigner.net</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <%= nav_link 'site', 'pricing' do %>
+            <%= link_to 'Pricing', '/pricing' %></li>
+          <% end %>
+          <% if Rails.env.development? %>
+          <%= nav_link 'blog' do %>
+            <%= link_to 'Blog', blog_path %>
+          <% end %>
+          <% end %>
+          <% if current_user.is_signed_in? %>
+            <%= nav_link 'users', 'account' do %>
+              <%= link_to 'Account', user_account_path %>
+            <% end %>
+            <li><%= link_to 'Logout', '/logout' %></li>
+          <% else %>
+            <%= nav_link 'sessions', 'new' do %>
+              <%= link_to 'Login', login_path %>
+            <% end %>
+            <%= nav_link 'registrations', 'new' do %>
+              <%= link_to 'Register', new_registration_path %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <%= yield %>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-sm-6">
+          <ul class="list-unstyled">
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/intent/follow?screen_name=dbdsgnr" target="_blank">Twitter</a></li>
+            <li><i class="fa fa-facebook-official"></i> <a href="https://www.facebook.com/dbdesigner.net/" target="_blank">Facebook</a></li>
+            <li><i class="fa fa-github"></i> <a href="https://github.com/dbdesigner" target="_blank">Github</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-6">
+          <ul class="list-unstyled">
+            <% if Rails.env.development? %>
+            <li><a href="/blog">Blog</a></li>
+            <% end %>
+            <li><a href="/changelog">Changelog</a></li>
+            <li><%= link_to 'Privacy Policy', privacy_path %></li>
+            <li><a href="/terms-of-service">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <p>
+            DbDesigner.net is available in 25 Languages!
+          </p>
+          <div class="flags">
+            <span class="flag sprite-bn" title="Bengali"></span>
+            <span class="flag sprite-br" title="Brazilian Portuguese"></span>
+            <span class="flag sprite-catalonia" title="Catalan"></span>
+            <span class="flag sprite-cs" title="Czech"></span>
+            <span class="flag sprite-dk" title="Danish"></span>
+            <span class="flag sprite-nl" title="Dutch"></span>
+            <span class="flag sprite-gb" title="English"></span>
+            <span class="flag sprite-de" title="German"></span>
+            <span class="flag sprite-fi" title="Finnish"></span>
+            <span class="flag sprite-fr" title="French"></span>
+            <span class="flag sprite-no" title="Norwegian"></span>
+            <span class="flag sprite-ua" title="Ukrainian"></span>
+            <span class="flag sprite-cn" title="Chinese"></span>
+            <br />
+            <span class="flag sprite-gr" title="Greek"></span>
+            <span class="flag sprite-id" title="Indonesian"></span>
+            <span class="flag sprite-it" title="Italian"></span>
+            <span class="flag sprite-ir" title="Persian"></span>
+            <span class="flag sprite-pl" title="Polish"></span>
+            <span class="flag sprite-ru" title="Russian"></span>
+            <span class="flag sprite-es" title="Spanish"></span>
+            <span class="flag sprite-tr" title="Turkish"></span>
+            <span class="flag sprite-vn" title="Vietnamese"></span>
+            <span class="flag sprite-eo" title="Esperanto"></span>
+            <span class="flag sprite-kannada" title="Kannada"></span>
+            <span class="flag sprite-jp" title="Japanese"></span>
+          </div>
+          <a target="_blank" href="https://github.com/dbdesigner/translations">Help translate DbDesigner to your language</a>
+        </div>
+        <div class="col-md-3 col-offset-md-1 col-sm-6">
+          <a href="https://www.digitalocean.com/?refcode=34f751e85284" target="_blank">
+            <img src="/site/DO_Proudly_Hosted_Badge_Grey-1652c782.png" alt="Digital Ocean">
+          </a>
+          <br>
+          <br>
+          <% if Rails.env.production? %>
+            <div class="facebook-wrapper">
+              <div class="fb-like" data-href="https://www.facebook.com/dbdesigner.net/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="text-muted copyright-text">
+            (◕ᴥ◕) Copyright © 2018 DbDesigner.net. All registered trademarks belong to their respective owners. Used and <i class="fa fa-heart"></i> loved by <%= User.where(deleted: false).count %> users
+            | <a href='&#109;ai&#108;to&#58;in&#37;&#54;6o%&#52;&#48;%64&#37;&#54;&#50;&#100;e&#115;i&#103;&#110;&#101;r&#46;%&#54;Eet'>contact</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <% if Rails.env.production? %>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-11380314-9', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <% end %>
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+</body>
+</html>

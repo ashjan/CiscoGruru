@@ -1,0 +1,452 @@
+@import "mixins/_css3";
+@import "_variables";
+
+div.bg {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  // width: 3840px;
+  // height: 2400px;
+  width: 7680px;
+  height: 4800px;
+  overflow: hidden;
+  z-index: 4000;
+  background: #333; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #e0e0e0 0%, #000000 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e0e0e0), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #e0e0e0 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #e0e0e0 0%,#000000 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #e0e0e0 0%,#000000 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center, #e0e0e0 0%,#000000 100%); /* W3C */
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#000000',GradientType=2 ); /* IE6-9 fallback on horizontal gradient */
+  //.transition(0.4s);
+}
+
+div.dialog {
+  height: 200px;
+  background-color: $dialog-bg-color;
+  border: 10px solid $dialog-border-color;
+  padding-top: $dialog-topbar-height;
+  position: fixed;
+  @include drop-shadow(0, 0, 10px, 0.3);
+  z-index: 4010;
+  /*
+  top: 0px;
+  transition: top 0.4s, left 0.4s;
+  -o-transition: top 0.4s, left 0.4s;
+  -moz-transition: top 0.4s, left 0.4s;
+  -webkit-transition: top 0.4s, left 0.4s;
+  */
+  div.topbar {
+    position: absolute;
+    background-color: $dialog-border-color;
+    left: 0px;
+    top: 0px;
+    height: $dialog-topbar-height;
+    font-family: 'source_sans_prosemibold', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    color: #444;
+    //text-shadow: 0px 1px 1px #fff;
+    text-align: left;
+    width: 100%;
+    @include no-select;
+    cursor: default;
+    div.buttons {
+      position:absolute;
+      font-size: 14px;
+      color: #666;
+      right: 0px;
+      top: 0px;
+      span {
+        cursor: pointer;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+  }
+  div.contents {
+    background-color: #FFF;
+    padding: 10px;
+    overflow: hidden;
+    font-family: 'source_sans_proregular', sans-serif;
+    position: relative;
+    &.vertical-scroll {
+      overflow-y: scroll;
+    }
+    div.loading {
+      height: 20px;
+      width: 20px;
+      @include absolute-center;
+    }
+    h3 {
+      font-family: 'source_sans_prosemibold', sans-serif;
+      font-size: 16px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    a {
+      color: $action-link-color;
+    }
+    a.btn {
+      color: #313131;
+    }
+  }
+  div.bottombar {
+    position:absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 40px;
+    text-align: right;
+    border-top: 1px solid $dialog-border-color;
+    div.left,
+    div.right {
+      height: 30px;
+      line-height: 30px;
+    }
+    div.left {
+      position:absolute;
+      top: 5px;
+      left: 10px;
+    }
+    div.right {
+      position:absolute;
+      top: 5px;
+      right: 10px;
+    }
+  }
+}
+
+div.dialog {
+  textarea#message {
+    width: 200px;
+  }
+  .help-content {
+    line-height: 1.4em;
+    span.code {
+      white-space: nowrap;
+      background-color: #dddddd;
+      padding: 2px;
+      font-family: monospace;
+      cursor: default;
+      font-size: 12px;
+      @include no-select();
+    }
+  }
+  &.shortcuts {
+    table {
+      margin-bottom: 14px;
+    }
+    th {
+      font-family: 'source_sans_prosemibold', sans-serif;
+      white-space: nowrap;
+      text-align: left;
+      &.filler-th {
+        width: 80px;
+      }
+    }
+    font-family: 'source_sans_proregular', sans-serif;
+    font-size: 14px;
+    td.shortcut {
+      white-space: nowrap;
+      vertical-align: top;
+      padding: 6px;
+      span {
+        background-color: #5f5f5f;
+        color: #fff;
+        padding: 4px;
+        line-height: 2em;
+        border-radius: 4px;
+        cursor: default;
+        font-size: 10px;
+        @include no-select();
+      }
+      text-align: right;
+      font-family: 'source_sans_prosemibold', sans-serif;
+      font-size: 12px;
+      //font-size: 16px;
+      //line-height: 16px;
+    }
+  }
+}
+
+div.dialog {
+  div.alert, div.notice {
+    display: none;
+    font-family: 'source_sans_proregular', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 4px 10px;
+    color: #ffffff;
+  }
+  div.alert {
+    background-color: #ff5353;
+  }
+  div.notice {
+    background-color: #36933B;
+  }
+}
+
+$horizontal-form-label-width: 120px;
+$horizontal-form-label-right-margin: 5px;
+$horizontal-form-input-left-margin: 3px + $horizontal-form-label-width + $horizontal-form-label-right-margin;
+
+div.horizontal-form {
+  label.control-label {
+    display: inline-block;
+    font-size: 14px;
+    width: $horizontal-form-label-width;
+    text-align: right;
+    margin-right: $horizontal-form-label-right-margin;
+    vertical-align: baseline;
+    @include no-select();
+  }
+  div.info-text {
+    margin-left: $horizontal-form-input-left-margin;
+    font-size: 13px;
+    color: #444;
+  }
+  .field {
+    button {
+      margin-left: $horizontal-form-input-left-margin;
+    }
+    a {
+      margin-left: $horizontal-form-input-left-margin;
+    }
+    a.action {
+      font-size: 13px;
+      display: inline-block;
+    }
+    input[type=text],
+    input[type=password],
+    textarea,
+    select {
+      padding: 3px;
+      margin-bottom: 5px;
+    }
+    select {
+      display: inline-block;
+    }
+    textarea {
+      vertical-align: top;
+    }
+    label.checkbox-label {
+      margin-left: $horizontal-form-input-left-margin;
+      font-size: 14px;
+      @include no-select();
+    }
+    &.topspace {
+      margin-top: 20px;
+    }
+    &.topspacelow {
+      margin-top: 10px;
+    }
+  }
+}
+
+body.rtl div.dialog {
+  div.topbar {
+    direction: rtl;
+    text-align: right;
+    left: auto;
+    right: 0px;
+    div.buttons {
+      right: auto;
+      left: 0px;
+    }
+  }
+  div.contents {
+    span.dialog-table-caption {
+      direction: rtl;
+    }
+  }
+}
+
+body.rtl div.horizontal-form {
+  direction: rtl;
+  input, select, textarea {
+    direction: ltr;
+  }
+  label.control-label {
+    text-align: left;
+    margin-right: auto;
+    margin-left: $horizontal-form-label-right-margin;
+  }
+  .field {
+    a {
+      margin-left: auto;
+      margin-right: $horizontal-form-input-left-margin;
+    }
+    button {
+      margin-left: auto;
+      margin-right: $horizontal-form-input-left-margin;
+    }
+    label.checkbox-label {
+      margin-left: auto;
+      margin-right: $horizontal-form-input-left-margin;
+    }
+  }
+}
+
+pre.sql {
+  display: inline-block;
+  vertical-align: top;
+  width: 480px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  overflow: scroll;
+  height: 325px;
+  background-color: #dadada;
+  padding: 5px;
+  border: 1px solid #999;
+  direction: ltr;
+}
+
+textarea.sql {
+  width: 300px;
+  height: 200px;
+}
+
+div.dialog-page {
+  &.sql-config {
+  }
+  &.sql-output {
+    display: none;
+  }
+}
+
+div.collaborator-list {
+  margin-left: $horizontal-form-input-left-margin;
+  margin-top: 10px;
+  ul {
+    padding-left: 0px;
+    li {
+      list-style-type: none;
+      img.avatar {
+        vertical-align: middle;
+      }
+      margin-bottom: 15px;
+    }
+  }
+  i.delete-collaborator {
+    font-size: 10px;
+    color: #999;
+    cursor: pointer;
+    &:hover {
+      color: #000;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      tr {
+        th {
+          text-align: left;
+          font-weight: 400;
+        }
+      }
+    }
+    tbody {
+      tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+      tr:nth-child(odd) {
+        background-color: #f0f0f0;
+      }
+      tr {
+        td {
+          padding: 6px;
+        }
+      }
+    }
+  }
+}
+
+span.label-default {
+  background-color: #5f5f5f;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 2px 5px;
+  box-sizing: border-box;
+  cursor: default;
+  font-size: 10px;
+  @include no-select();
+}
+
+span.dialog-table-caption {
+  font-family: 'source_sans_prosemibold', sans-serif;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table.schema-list {
+  width: 100%;
+  border-collapse: collapse;
+  thead {
+    tr {
+      th {
+        text-align: left;
+        font-size: 90%;
+        font-weight: 400;
+        background-color: #e0e0e0;
+        padding: 6px;
+      }
+    }
+  }
+  tbody {
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+    tr:nth-child(odd) {
+      background-color: #f0f0f0;
+    }
+    tr {
+      td {
+        padding: 6px;
+      }
+    }
+  }
+  span.table-message {
+    text-align: center;
+    display: block;
+    padding: 10px;
+  }
+}
+
+body.rtl {
+  table.schema-list {
+    direction: rtl;
+    thead {
+      tr {
+        th {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.about-dialog {
+  text-align: center;
+}
+
+// .export-image-dialog {
+//   .contents {
+//     position: relative;
+//     background-color: #f00;
+//     span.zoomin {
+//       position: fixed;
+//       top: 0px;
+//       right: 0px;
+//     }
+//     span.zoomout {
+//       position: fixed;
+//       top: 0px;
+//       right: 0px;
+//     }
+//   }
+// }

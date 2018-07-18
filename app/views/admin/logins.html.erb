@@ -1,0 +1,32 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<tr>
+				<%= sortable_header 'id', 'id' %>
+				<%= sortable_header 'User', 'user_id' %>
+                <th>Provider</th>
+				<%= sortable_header 'Browser', 'browser' %>
+				<%= sortable_header 'Version', 'version' %>
+				<%= sortable_header 'Platform', 'platform' %>
+				<%= sortable_header 'Date', 'logintime' %>
+                <th>Registration Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @logins.each do |login| %>
+			<tr>
+				<td><%= login.id %></td>
+				<td><span style="white-space: nowrap"><%= link_to login.user.username, "/yonetim/user/#{login.user.id}" %></span></td>
+                <td><%= login.provider_str %></td>
+                <td><%= login.browser %></td>
+                <td><%= login.version %></td>
+                <td><%= login.platform %></td>
+				<td><span style="white-space: nowrap"><%= l(login.logintime, format: :full) %></span></td>
+                <td><%= l(login.user.created_at, format: :short) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= paginate @logins %>
+

@@ -1,0 +1,117 @@
+<% content_for :title do %>Pricing - <% end %>
+<div class="container content-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Pricing Plans</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <blockquote>
+        <i class="fa fa-2x fa-gift"></i>
+        All prices are 50% off during the beta!
+      </blockquote>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="text-center">Basic</h3></div>
+        <div class="panel-body text-center">
+          <p class="lead"><strong>Free</strong></p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item"><i class="icon-ok text-danger"></i> 2 database models<br>30 tables per model</li>
+        </ul>
+        <%= select_plan_button(paddle_product_id: 0) %>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="panel panel-best-price">
+        <div class="panel-heading">
+          <h3 class="text-center">
+            <i class="fa fa-star"></i> Monthly <i class="fa fa-star"></i>
+          </h3>
+        </div>
+        <div class="panel-body text-center">
+          <p class="lead">
+            <strong>$4.99 / Month</strong><br>
+          </p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <i class="icon-ok text-danger"></i>
+            Unlimited database models<br>
+            Unlimited tables
+          </li>
+          <li class="list-group-item"><i class="icon-ok text-danger"></i> Priority E-mail support</li>
+        </ul>
+        <%= select_plan_button(paddle_product_id: 503002, primary_button: true) %>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="text-center">Semiannual</h3></div>
+        <div class="panel-body text-center">
+          <p class="lead">
+            <strong>$24.90 / 6 months</strong><br>
+            <small class="text-muted"><i class="fa fa-gift"></i> 1 month free</small>
+          </p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <i class="icon-ok text-danger"></i>
+            Unlimited database models<br>
+            Unlimited tables
+          </li>
+          <li class="list-group-item"><i class="icon-ok text-danger"></i> Priority E-mail support</li>
+        </ul>
+        <%= select_plan_button(paddle_product_id: 503111) %>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="panel panel-info">
+        <div class="panel-heading"><h3 class="text-center">Yearly</h3></div>
+        <div class="panel-body text-center">
+          <p class="lead">
+            <strong>$49.90 / Year</strong><br>
+            <small class="text-muted"><i class="fa fa-gift"></i> 2 months free</small>
+          </p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <i class="icon-ok text-danger"></i>
+            Unlimited database models<br>
+            Unlimited tables
+          </li>
+          <li class="list-group-item"><i class="icon-ok text-danger"></i> Priority E-mail support</li>
+        </ul>
+        <%= select_plan_button(paddle_product_id: 503001) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Pricing Information</h2>
+      <br>
+      <ul class="list-unstyled-x">
+        <li>Current prices are for the beta period. If you subscribe for a plan during the beta, you will always have this 50% discount.</li>
+        <li>The limits for the free tier can change once the beta is over.</li>
+        <li>VAT is included in the prices where it applies (What you see is what you pay).</li>
+        <li>You can cancel your subscription anytime you want. You will not lose access to your schemas.</li>
+        <li>We use <a href="https://www.paddle.com/?ref=12953" target="_blank">Paddle</a> as our payment system.</li>
+        <li>If you have any questions, please contact us at <a href="mailto:info@dbdesigner.net">info@dbdesigner.net</a></li>
+      </ul>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+
+</div>

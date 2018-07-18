@@ -1,0 +1,29 @@
+<div class="container content-container">
+	<div class="row">
+	  	<div class="col-sm-12">
+	  		<div class="page-header">
+				<h1>Schema History</h1>
+			</div>
+            <table class="table table-bordered table-striped table-condensed table-hover">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @schema_versions.each do |v| %>
+                <tr>
+                  <td><%= v.id %></td>
+                  <td><%= l(v.created_at, format: :full) %></td>
+                  <td><%= v.user.email %></td>
+                  <td><a class="btn btn-default btn-xs" target="_blank" href="/designer/schema/<%= @schema.id %>/version/<%= v.id %>">View</a></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>

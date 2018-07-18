@@ -1,0 +1,35 @@
+<div class="app-container">
+	<div class="toolbar">
+		<div class="notification">Notification</div>
+	</div>
+	<div class="canvas-container">
+		<div class="init-loading"><i class="icon-spin1 animate-spin"></i></div>
+		<canvas id="graph" class="canvas" width="3840" height="2400"></canvas>
+		<div class="selection"></div>
+	</div>
+	<div class="resizer"></div>
+	<div class="sidebar"></div>
+	<div style="display: none">
+		<%= image_tag "canvas-background.png", id: "cache-image-bg" %>
+		<%= image_tag "key.png", id: "cache-image-key" %>
+		<%= image_tag "key_ai.png", id: "cache-image-key-ai" %>
+		<%= image_tag "table_relationship.png", id: "cache-image-fk" %>
+		<%= image_tag "notnull.png", id: "cache-image-nn" %>
+		<%= image_tag "ai.png", id: "cache-image-ai" %>
+		<img src="/dbdesigner_logo_bw.png" id="cache-image-bw-logo" />
+	</div>
+</div>
+<script>
+window.userinfo = {
+	login: <%= current_user.is_signed_in? %>,
+	username: "<%= current_user.username %>",
+	email: "<%= current_user.email %>",
+	avatar: "<%= current_user.image %>",
+	tmpid: "<%= current_user.id_hash %>"
+};
+<% if Rails.env.production? %>
+window.renv = 'production';
+<% else %>
+window.renv = 'development';
+<% end %>
+</script>

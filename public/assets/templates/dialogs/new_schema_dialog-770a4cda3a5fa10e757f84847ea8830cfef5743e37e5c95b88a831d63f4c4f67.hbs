@@ -1,0 +1,27 @@
+<div class="horizontal-form">
+	<div class="field">
+		<label for="schema-title" class="control-label">{{t 'dialog.new_schema_title'}}</label>
+		<input type="text"
+			   value="Untitled"
+			   class="schema-title"
+			   id="schema-title"
+			   autofocus />
+	</div>
+	<div class="field">
+		<label for="new-schema-database" class="control-label">{{t 'dialog.new_schema_database'}}</label>
+		<select id="new-schema-database" class="new-schema-database" autofocus>
+			<option value="generic">Generic</option>
+			<option value="mysql">MySQL</option>
+			<option value="mssql">MS SQL Server</option>
+			<option value="sqlite">SQLite</option>
+			<option value="postgres">PostgreSQL</option>
+			<option value="oracle">Oracle</option>
+		</select>
+	</div>
+	<div class="info-text">
+		{{t 'dialog.new_schema_type_info'}}
+	</div>
+	<div class="field topspace">
+		<button class="btn create-schema" default-button>{{t 'dialog.new_schema_create_new'}}</button>
+	</div>
+</div>

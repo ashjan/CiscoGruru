@@ -1,0 +1,33 @@
+<%= form_tag yonetim_blog_create_path, method: :post, class: '' do %>
+<div class="form-group">
+    <label for="title">Title</label>
+    <%= text_field_tag :title, "", class: "form-control" %>
+</div>
+<div class="form-group">
+    <label for="slug">Slug</label>
+    <%= text_field_tag :slug, "", class: "form-control" %>
+</div>
+<div class="form-group">
+    <label for="brief">Brief</label>
+    <%= text_area_tag :brief, "", class: "form-control", rows: 4 %>
+</div>
+<div class="form-group">
+    <label for="contents">Contents</label>
+    <%= text_area_tag :contents, "", class: "form-control", rows: 7 %>
+</div>
+<div class="form-group">
+  <label for="is_published">
+    <%= check_box_tag :is_published, '1', @article.is_published? %> Is published?
+  </label>
+</div>
+<div class="form-group">
+  <label for="is_sponsored">
+    <%= check_box_tag :is_sponsored, '1', @article.is_sponsored? %> Is sponsored?
+  </label>
+</div>
+<div class="form-group">
+    <button class="btn btn-primary">Save</button>
+    <a href="/yonetim/blog" class="btn btn-default">Cancel</a>
+</div>
+<% end %>
+

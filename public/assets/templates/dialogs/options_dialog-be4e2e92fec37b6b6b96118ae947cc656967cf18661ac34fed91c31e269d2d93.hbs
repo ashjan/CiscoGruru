@@ -1,0 +1,57 @@
+<div class="horizontal-form">
+	<div class="field">
+		<label for="schema-title" class="control-label">{{t 'dialog.options_line_colors'}}</label>
+		<input class="color" value="{{ lineColor }}" />
+	</div>
+	<div class="field">
+		<label for="invert-line-direction" class="checkbox-label">
+			<input type="checkbox"
+				   {{ invertLineDirection }}
+			       id="invert-line-direction" />
+		    <span>{{t 'dialog.options_invert_line_direction'}}</span>
+		</label>
+	</div>
+	<div class="field">
+		<label for="language" class="control-label">{{t 'dialog.options_language'}}</label>
+		<select id="language" class="language" autofocus>
+			{{#languages}}
+			<option value="{{code}}">{{name}}</option>
+			{{/languages}}
+		</select>
+	</div>
+	<div class="field">
+		<label for="show-fk-icon" class="checkbox-label">
+			<input type="checkbox"
+				   {{ showFkIcon }}
+			       id="show-fk-icon" />
+		    <span>{{t 'dialog.options_show_fk_icon'}}</span>
+		</label>
+	</div>
+	<div class="field">
+		<label for="show-ai-icon" class="checkbox-label">
+			<input type="checkbox"
+				   {{ showAiIcon }}
+			       id="show-ai-icon" />
+		    <span>{{t 'dialog.options_show_ai_icon'}}</span>
+		</label>
+	</div>
+	<div class="field">
+		<label for="show-not-nulls" class="checkbox-label">
+			<input type="checkbox"
+				   {{ showNotNull }}
+			       id="show-not-nulls" />
+		    <span>{{t 'dialog.options_show_not_null_icon'}}</span>
+		</label>
+	</div>
+	<div class="field">
+		<label for="show-default-values" class="checkbox-label">
+			<input type="checkbox"
+			       {{ showDefaultValue }}
+			       id="show-default-values" />
+		    <span>{{t 'dialog.options_show_default_values'}}</span>
+		</label>
+	</div>
+	<div class="field topspace">
+		<button class="btn save" default-button>{{t 'dialog.options_save_changes'}}</button>
+	</div>
+</div>

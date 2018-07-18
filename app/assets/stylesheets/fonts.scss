@@ -1,0 +1,137 @@
+@import "animate-custom";
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: font-url('sourcesanspro-regular.eot');
+    src: font-url('sourcesanspro-regular.eot?#iefix') format('embedded-opentype'),
+         font-url('sourcesanspro-regular.woff') format('woff'),
+         font-url('sourcesanspro-regular.ttf') format('truetype'),
+         font-url('sourcesanspro-regular.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_prosemibold';
+    src: font-url('sourcesanspro-semibold.eot');
+    src: font-url('sourcesanspro-semibold.eot?#iefix') format('embedded-opentype'),
+         font-url('sourcesanspro-semibold.woff') format('woff'),
+         font-url('sourcesanspro-semibold.ttf') format('truetype'),
+         font-url('sourcesanspro-semibold.svg#source_sans_prosemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'dbdesigner';
+  src: font-url('dbdesigner.eot?13309911');
+  src: font-url('dbdesigner.eot?13309911#iefix') format('embedded-opentype'),
+  font-url('dbdesigner.woff?13309911') format('woff'),
+  font-url('dbdesigner.ttf?13309911') format('truetype'),
+  font-url('dbdesigner.svg?13309911#dbdesigner') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'dbdesigner';
+    src: font-url('dbdesigner.svg?10914327#dbdesigner') format('svg');
+  }
+}
+*/
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "dbdesigner";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-lightbulb:before { content: '\e800'; } /* '' */
+.icon-spin1:before { content: '\e801'; } /* '' */
+.icon-down-open:before { content: '\e802'; } /* '' */
+.icon-left-open:before { content: '\e803'; } /* '' */
+.icon-right-open:before { content: '\e804'; } /* '' */
+.icon-up-open:before { content: '\e805'; } /* '' */
+.icon-play:before { content: '\e806'; } /* '' */
+.icon-heart:before { content: '\e807'; } /* '' */
+.icon-heart-empty:before { content: '\e808'; } /* '' */
+.icon-star:before { content: '\e809'; } /* '' */
+.icon-star-empty:before { content: '\e80a'; } /* '' */
+.icon-user:before { content: '\e80b'; } /* '' */
+.icon-ok:before { content: '\e80c'; } /* '' */
+.icon-ok-circled:before { content: '\e80d'; } /* '' */
+.icon-ok-circled2:before { content: '\e80e'; } /* '' */
+.icon-cancel:before { content: '\e80f'; } /* '' */
+.icon-cancel-circled:before { content: '\e810'; } /* '' */
+.icon-cancel-circled2:before { content: '\e811'; } /* '' */
+.icon-minus-circled:before { content: '\e812'; } /* '' */
+.icon-minus:before { content: '\e813'; } /* '' */
+.icon-plus-circled:before { content: '\e814'; } /* '' */
+.icon-plus:before { content: '\e815'; } /* '' */
+.icon-help:before { content: '\e816'; } /* '' */
+.icon-flag:before { content: '\e817'; } /* '' */
+.icon-bookmark-empty:before { content: '\e818'; } /* '' */
+.icon-bookmark:before { content: '\e819'; } /* '' */
+.icon-tags:before { content: '\e81a'; } /* '' */
+.icon-tag:before { content: '\e81b'; } /* '' */
+.icon-lock-open:before { content: '\e81c'; } /* '' */
+.icon-lock:before { content: '\e81d'; } /* '' */
+.icon-attach:before { content: '\e81e'; } /* '' */
+.icon-home:before { content: '\e81f'; } /* '' */
+.icon-download-alt:before { content: '\e820'; } /* '' */
+.icon-pencil:before { content: '\e821'; } /* '' */
+.icon-edit:before { content: '\e822'; } /* '' */
+.icon-print:before { content: '\e823'; } /* '' */
+.icon-cog:before { content: '\e824'; } /* '' */
+.icon-cogs:before { content: '\e825'; } /* '' */
+.icon-wrench:before { content: '\e826'; } /* '' */
+.icon-clipboard:before { content: '\e827'; } /* '' */
+.icon-credit-card:before { content: '\e828'; } /* '' */
+.icon-inbox:before { content: '\e829'; } /* '' */
+.icon-zoom-out:before { content: '\e82a'; } /* '' */
+.icon-zoom-in:before { content: '\e82b'; } /* '' */
+.icon-move:before { content: '\e82c'; } /* '' */
+.icon-resize-horizontal:before { content: '\e82d'; } /* '' */
+.icon-resize-vertical:before { content: '\e82e'; } /* '' */
+.icon-resize-small:before { content: '\e82f'; } /* '' */
+.icon-resize-full-alt:before { content: '\e830'; } /* '' */
+.icon-resize-full:before { content: '\e831'; } /* '' */
+.icon-block:before { content: '\e832'; } /* '' */
+.icon-search:before { content: '\e833'; } /* '' */
+.icon-trash:before { content: '\e834'; } /* '' */
+.icon-off:before { content: '\e835'; } /* '' */
+.icon-doc:before { content: '\e836'; } /* '' */
+.icon-comment:before { content: '\e837'; } /* '' */
+.icon-comment-alt:before { content: '\e838'; } /* '' */
+.icon-bell:before { content: '\e839'; } /* '' */
+.icon-megaphone:before { content: '\e83a'; } /* '' */
+.icon-spin3:before { content: '\e84d'; } /* '' */

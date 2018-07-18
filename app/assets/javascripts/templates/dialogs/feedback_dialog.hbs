@@ -1,0 +1,18 @@
+<div class="horizontal-form">
+	<div class="field">
+		<label for="subject" class="control-label">{{t 'dialog.feedback_type'}}</label>
+		<select id="subject" autofocus>
+			<option value="bug">{{t 'dialog.feedback_bug'}}</option>
+			<option value="feature">{{t 'dialog.feedback_feature'}}</option>
+			<option value="help">{{t 'dialog.feedback_help'}}</option>
+			<option value="other">{{t 'dialog.feedback_other'}}</option>
+		</select>
+	</div>
+	<div class="field">
+		<label for="message" class="control-label">{{t 'dialog.feedback_message'}}</label>
+		<textarea name="message" id="message" rows="10"></textarea>
+	</div>
+	<div class="field">
+		<button class="btn send" default-button>{{t 'dialog.feedback_button'}}</button>
+	</div>
+</div>

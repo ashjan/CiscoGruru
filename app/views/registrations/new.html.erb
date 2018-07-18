@@ -1,0 +1,92 @@
+<% content_for :title do %>New registration | <% end %>
+<div class="container content-container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">DbDesigner.net Registration</div>
+        </div>
+        <div class="panel-body">
+          <% if flash[:alert] %>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Error!</strong> <%= flash[:alert] %>
+            </div>
+          <% end %>
+          <% if flash[:notice] %>
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <%= form_for @user, url: registrations_path do |f| %>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <%= f.text_field :username, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <%= f.text_field :email, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password_confirmation">Password again</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="plan">Plan</label>
+              <%= select_tag(:plan_id, options_for_select({"Free" => "0", "Monthly" => "503002", "Semiannual" => "503111", "Yearly" => "503001"}, @plan_id), class: "form-control") %>
+            </div>
+            <div class="checkbox">
+              <label class="checkbox" for="user_newsletter_subscription">
+                <%= f.check_box :newsletter_subscription, checked: true %>
+                <span class="checkbox-label">Register to the DbDesigner monthly mailing list</span>
+              </label>
+            </div>
+            <br>
+            <%= f.submit 'Register', class: "btn btn-primary" %>
+            <%= link_to 'I already have an account', login_path, class: 'btn btn-default' %>
+            <hr>
+            Or register using:<br><br>
+            <%= link_to '/auth/github?dbdesigner_action=register', class: 'btn btn-default' do %>
+              <i class="fa fa-github-alt"></i>
+              Github
+            <% end %>
+            <%= link_to '/auth/google_oauth2?dbdesigner_action=register', class: 'btn btn-default' do %>
+              <i class="fa fa-google-plus"></i>
+              Google
+            <% end %>
+            <%= link_to '/auth/twitter?dbdesigner_action=register', class: 'btn btn-default' do %>
+              <i class="fa fa-twitter"></i>
+              Twitter
+            <% end %>
+            <%= link_to '/auth/vkontakte?dbdesigner_action=register', class: 'btn btn-default' do %>
+              <i class="fa fa-vk"></i>
+              VKontakte
+            <% end %>
+            <%= link_to '/auth/yandex?dbdesigner_action=register', class: 'btn btn-default' do %>
+              <i class="fa fa-yandex"></i>
+              Yandex
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

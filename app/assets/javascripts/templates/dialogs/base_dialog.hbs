@@ -1,0 +1,27 @@
+<div class="topbar">
+    {{ caption }}
+    <div class="buttons">
+        <!--span class="maximize">
+          <i class="icon-resize-full"></i>
+        </span-->
+        <span class="close"><i class="icon-cancel"></i></span>
+    </div>
+</div>
+<div class="alert"></div>
+<div class="notice"></div>
+<div class="contents">
+    {{{ contents }}}
+</div>
+
+<div class="bottombar">
+    <div class="left">
+    {{#leftButtons}}
+      <button class="btn {{ className }}">{{ caption }}</button>
+    {{/leftButtons}}
+    </div>
+    <div class="right">
+    {{#rightButtons}}
+      <button class="btn {{ className }}">{{ caption }}</button>
+    {{/rightButtons}}
+    </div>
+</div>

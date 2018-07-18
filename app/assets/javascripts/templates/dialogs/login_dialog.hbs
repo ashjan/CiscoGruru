@@ -1,0 +1,16 @@
+<div class="horizontal-form">
+	<div class="field">
+		<label for="email" class="control-label">{{t 'dialog.login_email'}}</label>
+		<input type="text" value="{{ email }}" id="email" autofocus />
+	</div>
+	<div class="field">
+		<label for="password" class="control-label">{{t 'dialog.login_password'}}</label>
+		<input type="password" id="password" />
+	</div>
+	<div class="field">
+		<button class="btn login-button" default-button>{{t 'dialog.login_button'}}</button>
+	</div>
+	<div class="field topspacelow">
+		<a href="/password-recovery/remind-password" target="_blank" class="action">{{t 'dialog.login_forgot_password'}}</a>
+	</div>
+</div>

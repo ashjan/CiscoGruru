@@ -1,0 +1,30 @@
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin drop-shadow($top, $left, $blur: 2px, $alpha: 0.1) {
+  -webkit-box-shadow:$top $left $blur rgba(0, 0, 0, $alpha);
+  -moz-box-shadow:$top $left $blur rgba(0, 0, 0, $alpha);
+  box-shadow:$top $left $blur rgba(0, 0, 0, $alpha);
+}
+
+@mixin transition($scope, $duration, $ease) {
+  -webkit-transition: $scope $duration $ease;
+  -moz-transition: $scope $duration $ease;
+  -o-transition: $scope $duration $ease;
+  transition: $scope $duration $ease;
+}
+
+@mixin absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

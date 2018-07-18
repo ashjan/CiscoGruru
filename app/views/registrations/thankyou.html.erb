@@ -1,0 +1,20 @@
+<% content_for :title do %>Registration Completed | <% end %>
+<div class="container content-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h1>Subscription successful!</h1>
+      </div>
+      Thank you for you subscription to DbDesigner.<br>
+      You can update your subscription anytime at your <a href="/account">account</a> page.<br>
+      If you have any questions, you can contact us at <a href="mailto:info@dbdesigner.net">info@dbdesigner.net</a>
+      <br>
+      <br>
+      <% if current_user.is_signed_in? %>
+        <%= link_to 'Go to Application', designer_path, class: 'btn btn-primary btn-lg' %>
+      <% else %>
+        <%= link_to 'Login', login_path, class: 'btn btn-primary btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</div>

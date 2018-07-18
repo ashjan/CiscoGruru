@@ -1,0 +1,304 @@
+@import 'mixins/css3';
+
+div.toolbar {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  display: none;
+  background-color: $toolbar-bg-color;
+  border-bottom: 1px solid $toolbar-border-color;
+  cursor: default;
+  position: fixed;
+  z-index: 3060; // ??WHYTF IS THIS SO ??
+  width: 100%;
+  height: $toolbar-height;
+  font-family: "Helvetica Neue", Helvetica, 'source_sans_proregular', Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: 0px 2px 5px $menu-shadow-color;
+  @include no-select;
+}
+
+body.rtl div.toolbar {
+  direction: rtl;
+}
+
+ul.context-menu,
+ul.menu {
+  position: absolute;
+  background-color: $menu-bg-color;
+  height: $toolbar-height;
+  line-height: $toolbar-height;
+  font-size: 0px;
+  text-shadow: 0px 1px 1px contrast($menu-shortcut-color);
+  z-index: 3062;
+
+  >li {
+    background-color: $topmenu-bg-color;
+    font-size: 13px;
+    list-style-type: none;
+    padding-left: 0px;
+    padding-right: 7px;
+    color: $menu-text-color;
+    display: inline-block;
+    position:relative;
+
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s;
+    -ms-transition: background-color 0.2s, color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+
+    >img {
+      position: absolute;
+      padding: 0px;
+      margin: 0px;
+      left: 3px;
+      top: 3px;
+    }
+
+    &:hover {
+      background-color: $menu-selection-bg-color;
+      color: $menu-selection-text-color;
+      text-shadow: none;
+    }
+    &.no-highlight:hover {
+      background-color: inherit;
+      color: inherit;
+      text-shadow: inherit;
+    }
+    &.open-top-menu {
+      background-color: $menu-selection-bg-color;
+      color: $menu-selection-text-color;
+      text-shadow: none;
+    }
+    &.flash {
+      background-color: $menu-selection-bg-color;
+      /* color: $menu-selection-text-color; */
+    }
+    &.has-dropdown {
+      padding-right: 20px;
+      background-image: image-url("menu-down-arrow.png");
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+  }
+
+  span.menu-item {
+    padding-left: 7px;
+  }
+}
+
+ul.context-menu,
+ul.submenu {
+  position: absolute;
+  display: none;
+  background-color: $menu-bg-color;
+  border: 1px solid $submenu-border-color;
+  padding-left: 0px;
+  box-shadow: 2px 2px 3px $menu-shadow-color;
+  > li {
+    list-style-type: none;
+    padding-left: 16px;
+    padding-right: 80px;
+    background-color: $menu-bg-color;
+    color: $menu-text-color;
+    display: list-item;
+    position: relative;
+    &:hover {
+      background-color: $menu-selection-bg-color;
+      color: $menu-selection-text-color;
+      span.shortcut {
+        color: $menu-selection-text-color;
+      }
+    }
+    &.hide {
+      display: none;
+    }
+    span.shortcut {
+      position: absolute;
+      right: 16px;
+      margin-left: 45px;
+      color: $menu-shortcut-color;
+      text-shadow: 0px 1px 1px contrast($menu-shortcut-color);
+      font-style: italic;
+      font-size: 11px;
+    }
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+  li.has-submenu {
+    &:before {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: image-url("app-sprites.png") 0px 0px;
+    }
+    span.accel {
+      text-decoration: underline;
+    }
+  }
+  li.selected_menu_option {
+    //background-image: url(../img/bullet_radio.png);
+    background-position: center left;
+    background-repeat: no-repeat;
+  }
+  li.disabled {
+    color: $menu-disabled-text;
+    span.shortcut {
+      color: $menu-disabled-text;
+    }
+    &:hover {
+      background-color: $menu-bg-color;
+      span.shortcut {
+        color: $menu-disabled-text;
+      }
+    }
+  }
+  li.menu-separator {
+    border-top: 1px solid darken($menu-bg-color, 20%);
+    border-bottom: 1px solid lighten($menu-bg-color, 20%);
+    height: 0px;
+  }
+  ul.submenu {
+    //min-width: 100%;
+    white-space: nowrap;
+    left: 100%;
+    top: 0px;
+  }
+}
+// }}}
+
+body.rtl ul.context-menu,
+body.rtl ul.submenu {
+  box-shadow: -2px 2px 3px $menu-shadow-color;
+  > li {
+    padding-right: 16px;
+    padding-left: 80px;
+    span.shortcut {
+      left: 16px;
+      right: auto;
+      margin-right: 45px;
+      margin-left: auto;
+    }
+  }
+}
+
+body.rtl ul.submenu {
+  //left: -200px;
+  // left: auto;
+  // right: 0px;
+  padding-right: 0px;
+  li.has-submenu {
+    &:before {
+      right: auto;
+      left: 3px;
+      background: image-url("app-sprites.png") 0px -30px;
+    }
+  }
+}
+
+ul#mainmenu {
+  left: 10px;
+  top: 0px;
+  padding: 0px;
+}
+
+ul#usermenu {
+  right: 10px;
+  top: 0px;
+  z-index: 3062;
+}
+
+body.rtl ul#mainmenu {
+  left: auto;
+  right: 10px;
+}
+
+body.rtl ul#usermenu {
+  left: 10px;
+  right: auto;
+}
+
+ul.context-menu {
+  position: absolute;
+  z-index: 3000;
+  list-style-type: none;
+  background-color: $menu-bg-color;
+  color: $menu-text-color;
+  height: auto;
+  line-height: auto;
+  display: none;
+  font-family: "Helvetica Neue", Helvetica, 'source_sans_proregular', Arial, "Lucida Grande", sans-serif;
+  white-space: nowrap;
+  @include no-select;
+  cursor: default;
+  > li {
+    padding-right: 20px;
+  }
+  span.table-color {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    cursor: pointer;
+    &.selected {
+      border: 2px solid #444;
+    }
+    &.table-color-red {
+      background-color: #cc3333;
+    }
+    &.table-color-blue {
+      background-color: #1586D6;
+    }
+    &.table-color-green {
+      background-color: #008000;
+    }
+    &.table-color-orange {
+      background-color: #ff8000;
+    }
+    &.table-color-purple {
+      background-color: #7F007F;
+    }
+    &.table-color-maroon {
+      background-color: #800040;
+    }
+    &.table-color-ocean {
+      background-color: #004080;
+    }
+    &.table-color-teal {
+      background-color: #008080;
+    }
+    &.table-color-asparagus {
+      background-color: #808000;
+    }
+    &.table-color-strawberry {
+      background-color: #FF0080;
+    }
+    &.table-color-iron {
+      background-color: #505050;
+    }
+    &.table-color-reset {
+      background-color: white;
+    }
+  }
+  div.color-lines {
+    line-height: 1em;
+    &.top-row {
+      padding-top: 6px;
+      padding-bottom: 4px;
+    }
+    &.bottom-row {
+      padding-top: 4px;
+      padding-bottom: 6px;
+    }
+  }
+}
+

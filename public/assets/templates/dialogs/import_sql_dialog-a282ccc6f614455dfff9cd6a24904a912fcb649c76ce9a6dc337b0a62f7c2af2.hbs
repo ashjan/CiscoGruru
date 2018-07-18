@@ -1,0 +1,18 @@
+<div class="horizontal-form">
+	<div class="info-text">
+		Sql importing is currently experimental, please send a bug report if you encounter errors. Imported sql should only include DDL statements
+	</div>
+	<div class="field">
+		<label for="export-sql-database" class="control-label">Database</label>
+		<select id="export-sql-database" autofocus>
+			<option value="mysql">MySQL</option>
+		</select>
+	</div>
+	<div class="field">
+		<label class="control-label" for="sql-input">Sql</label>
+		<textarea class="sql" wrap="off" id="sql-input"></textarea>
+	</div>
+	<div class="field topspace">
+		<button class="import btn">Import SQL</button>
+	</div>
+</div>

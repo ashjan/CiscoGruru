@@ -1,0 +1,42 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                      :integer          not null, primary key
+#  username                :string
+#  email                   :string
+#  password_digest         :string
+#  created_at              :datetime
+#  updated_at              :datetime
+#  invited                 :boolean          default(FALSE)
+#  account_id              :integer
+#  schemas_count           :integer          default(0)
+#  deleted                 :boolean          default(FALSE)
+#  app_settings            :string
+#  newsletter_subscription :boolean          default(FALSE)
+#
+
+cenan:
+  email: me@cenanozen.com
+  password_digest: <%= BCrypt::Password.create('test') %>
+  username: kedibasi
+  account: one
+
+meral:
+  email: meral@cenanozen.com
+  password_digest: <%= BCrypt::Password.create('test') %>
+
+kedibasi:
+  username: kedibasi
+  email: mirnav@kedibasi.com
+  password_digest: <%= BCrypt::Password.create('test') %>
+
+efe:
+  username: efe
+  email: efe@kedibasi.com
+  password_digest: <%= BCrypt::Password.create('test') %>
+
+zarife:
+  username: zarife
+  email: zarife@kedibasi.com
+  password_digest: <%= BCrypt::Password.create('test') %>

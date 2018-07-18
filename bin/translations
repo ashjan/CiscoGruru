@@ -1,0 +1,65 @@
+#!/bin/bash
+
+set -e
+
+TRANSLATIONS_REPO="../translations/"
+TRANSLATIONS_DIR="./app/assets/javascripts/locale/"
+
+dir_stats() {
+	echo "stats for $1"
+	find $1 | xargs wc -l
+}
+
+backup_directory() {
+	echo "backing up translations directory"
+	tar czvf tmp/translations.tar.gz $TRANSLATIONS_DIR
+}
+
+import_translations() {
+	echo "importing translations"
+	backup_directory
+	dir_stats "${TRANSLATIONS_REPO}*.coffee"
+	dir_stats "${TRANSLATIONS_DIR}*.coffee"
+	cp -R "${TRANSLATIONS_REPO}*.coffee ${TRANSLATIONS_DIR}"
+	echo "done"
+}
+
+export_translations() {
+	echo "exporting translations"
+	dir_stats "${TRANSLATIONS_REPO}*.coffee"
+	dir_stats "${TRANSLATIONS_DIR}*.coffee"
+
+	#cp -R "${TRANSLATIONS_DIR}*.coffee ${TRANSLATIONS_REPO}"
+	cp -R app/assets/javascripts/locale/*.coffee ../translations/
+
+	ls -lah $TRANSLATIONS_DIR
+	echo "done"
+}
+
+usage() {
+	echo "usage:"
+	echo "translations command"
+	echo "where command can be one of the following:"
+	echo "  import - copy translations from its own repo to this repo"
+	echo "  export - copy translations from this repo back to its own repo"
+}
+
+if [ $# -lt 1 ]; then
+	usage
+	exit 1
+fi
+
+case $1 in
+	import)
+		import_translations
+	;;
+	export)
+		export_translations
+	;;
+	*)
+		usage
+		exit 1
+	;;
+esac
+
+exit 0

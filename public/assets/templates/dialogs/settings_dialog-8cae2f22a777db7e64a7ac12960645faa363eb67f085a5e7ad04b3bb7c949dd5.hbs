@@ -1,0 +1,20 @@
+<div class="horizontal-form">
+	<div class="field">
+		<label for="username" class="control-label">{{t 'dialog.user_settings_username'}}</label>
+		<input type="text"
+			   value="{{ username }}"
+			   class="username"
+			   id="username"
+			   autofocus />
+	</div>
+	<div class="field">
+		<label for="email" class="control-label">{{t 'dialog.user_settings_email'}}</label>
+		<input type="text"
+			   value="{{ email }}"
+			   class="email"
+			   id="email" />
+	</div>
+	<div class="field topspace">
+		<button class="btn save" default-button>{{t 'dialog.user_settings_save'}}</button>
+	</div>
+</div>

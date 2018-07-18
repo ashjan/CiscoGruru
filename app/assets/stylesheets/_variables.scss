@@ -1,0 +1,67 @@
+//$light-theme: true;
+
+$action-link-color: #336699;
+
+$dialog-topbar-height: 23px;
+$dialog-bg-color: #ddd;
+$dialog-border-color: #ccc;
+
+$toolbar-height: 28px;
+//$toolbar-bg-color: #ecf0f1;
+
+$toolbar-bg-color: #dddddd;
+$toolbar-border-color: #666;
+@if $light-theme == true {
+  $toolbar-bg-color: #dddddd;
+  $toolbar-border-color: #666;
+} @else {
+  $toolbar-bg-color: #cccccc;
+  $toolbar-border-color: #eeeeee;
+}
+
+//$topmenu-bg-color: lighten($toolbar-bg-color, 3%);
+$topmenu-bg-color: $toolbar-bg-color;
+
+$menu-bg-color: $toolbar-bg-color;
+$menu-text-color: invert($menu-bg-color);
+$menu-disabled-text: #A79E9E;
+$menu-shortcut-color: #666;
+
+$menu-selection-bg-color: #3498db;
+$menu-selection-text-color: #f0f0f0;
+@if $light-theme == true {
+  $menu-selection-bg-color: #3498db;
+  $menu-selection-text-color: #f0f0f0;
+} @else {
+  $menu-selection-bg-color: #336699;
+  $menu-selection-text-color: #f0f0f0;
+}
+
+$menu-shadow-color: #666;
+
+$submenu-border-color: darken($menu-bg-color, 20%);
+
+$button-bg-color: #c0c0c0;
+$button-text-color: #333333;
+$button-default-bg-color: #336699;
+$button-default-text-color: #ffffff;
+$button-disabled-bg-color: darken($button-bg-color, 10%);
+$button-border-color: #999999;
+
+$button-primary-bg-color: #e67e22;
+$button-primary-text-color: #fff;
+$button-primary-border-color: #bbbbbb;
+
+$button-danger-bg-color: #AB3449;
+$button-danger-text-color: #fff;
+$button-danger-border-color: #bbbbbb;
+
+$note-bg-color: #ffdc73;
+$note-border-color: #a69100;
+$note-textarea-bg-color: #ffeca3;
+$note-textarea-border-color: darken($note-textarea-bg-color, 50%);
+
+$selection-outline-width: 3px;
+$selection-outline-style: dotted;
+$selection-outline-color: #3498DB;
+

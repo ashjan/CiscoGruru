@@ -1,0 +1,170 @@
+@import "mixins/css3";
+@import "variables";
+
+a.action,
+span.action {
+  color: $action-link-color;
+  text-decoration: underline;
+  cursor: pointer;
+  &.danger {
+    color: #d00;
+  }
+  &:focus {
+    border-bottom: 1px dotted #000;
+  }
+}
+
+.btn {
+  cursor: default;
+  &:focus {
+    outline: 1px dotted $action-link-color;
+  }
+}
+
+.btn.primary {
+  background-color: $button-primary-bg-color;
+  color: $button-primary-text-color;
+  border-color: $button-primary-border-color;
+  &:hover {
+    background-color: lighten($button-primary-bg-color, 5%);
+    color: lighten($button-primary-text-color, 5%);
+  }
+}
+
+.btn.btn-danger {
+  background-color: $button-danger-bg-color;
+  color: $button-danger-text-color;
+  border-color: $button-danger-border-color;
+  &:hover {
+    background-color: lighten($button-danger-bg-color, 5%);
+    color: lighten($button-danger-text-color, 5%);
+  } 
+}
+
+input {
+  outline: none;
+}
+
+input[type=text],
+input[type=password],
+textarea {
+  border: 1px solid #aaa;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+  border: 1px solid #555555;
+}
+
+input[type=checkbox]:focus + span {
+  text-decoration: underline;
+}
+
+input.color {
+  border: 1px solid #000000;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+}
+
+select {
+  border: 1px solid $button-border-color;
+  border-radius: none;
+}
+
+a.btn,
+span.btn,
+button.btn {
+  height: 24px;
+  display: inline-block;
+  line-height: 20px;
+  border: 1px solid $button-border-color;
+  color: $button-text-color;
+  cursor: pointer;
+  background-color: $button-bg-color;
+  vertical-align: middle;
+  font-family: sans-serif;
+  font-size: 12px;
+  border-radius: 2px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  @include transition(background-color, 0.2s, ease-out);
+  &:hover {
+    //background-color: #e0e0e0;
+    background-color: lighten($button-bg-color, 5%);
+    color: lighten($button-text-color, 5%);
+  }
+  &:active {
+    //background-color: #ffffff;
+    background-color: lighten($button-bg-color, 20%);
+    color: lighten($button-text-color, 20%);
+  }
+  &[disabled] {
+    background-color: #aaa;
+    transition: none;
+    cursor: wait;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+button.tdbtn {
+  height: 24px;
+  line-height: 20px;
+  border: 1px solid #999;
+  color: $button-text-color;
+  cursor: pointer;
+  background-color: $button-bg-color;
+  vertical-align: middle;
+  font-family: sans-serif;
+  font-size: 12px;
+  border-radius: 2px;
+  text-shadow: 0px 1px #e2e2e2;
+  @include transition(background-color, 0.2s, ease-out);
+  &[disabled=disabled] {
+    cursor: not-allowed;
+    background-color: $button-disabled-bg-color;
+    text-shadow: none;
+    &:hover,
+    &:active {
+      background-color: $button-disabled-bg-color;
+    }
+  }
+  &:hover {
+    //background-color: #e0e0e0;
+    background-color: lighten($button-bg-color, 10%);
+    color: lighten($button-text-color, 10%);
+  }
+  &:active {
+    //background-color: #ffffff;
+    background-color: lighten($button-bg-color, 20%);
+    color: lighten($button-text-color, 20%);
+  }
+  &:disabled:hover {
+    background-color: #c0c0c0;
+  }
+  /*
+  &.default {
+    background-color: $button-default-bg-color;
+    color: $button-default-text-color;
+    //text-shadow: 0px 1px contrast($button-default-text-color);
+    &:hover {
+      //background-color: #e0e0e0;
+      background-color: lighten($button-default-bg-color, 10%);
+      color: darken($button-default-text-color, 10%);
+      //text-shadow-color: contrast(darken($button-default-text-color, 10%));
+    }
+    &:active {
+      //background-color: #ffffff;
+      background-color: lighten($button-default-bg-color, 20%);
+      color: darken($button-default-text-color, 20%);
+      //text-shadow-color: contrast(darken($button-default-text-color, 20%));
+    }
+  }
+  */
+}

@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id           :integer          not null, primary key
+#  title        :string
+#  slug         :string
+#  brief_html   :text
+#  brief_md     :text
+#  content_html :text
+#  content_md   :text
+#  is_sponsored :boolean
+#  is_published :boolean
+#  view_count   :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slug: MyString
+  brief_html: MyText
+  brief_md: MyText
+  content_html: MyText
+  content_md: MyText
+  is_sponsored: false
+  is_published: false
+
+two:
+  title: MyString
+  slug: MyString
+  brief_html: MyText
+  brief_md: MyText
+  content_html: MyText
+  content_md: MyText
+  is_sponsored: false
+  is_published: false

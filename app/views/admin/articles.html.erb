@@ -1,0 +1,32 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<tr>
+				<%= sortable_header 'id', 'id' %>
+				<%= sortable_header 'Title', 'title' %>
+                <%= sortable_header 'Status', 'is_published' %>
+				<%= sortable_header 'Date', 'created_at' %>
+                <%= sortable_header 'View Count', 'view_count' %>
+                <th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @articles.each do |article| %>
+			<tr>
+				<td><%= article.id %></td>
+                <td><%= link_to article.title, "/yonetim/blog/edit/#{article.id}" %></td>
+                <td><span class="label label-default"><%= article.published_str %></span></td>
+				<td><span style="white-space: nowrap"><%= l(article.created_at, format: :full) %></span></td>
+                <td><%= article.view_count %></td>
+                <td>
+                  <div class="btn-group">
+                    <%= link_to "Edit", "/yonetim/blog/edit/#{article.id}", class: "btn btn-xs btn-default" %>
+                    <%= link_to "View", article.url, class: "btn btn-xs btn-default", target: "_blank" %>
+                  </div>
+                </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= paginate @articles %>

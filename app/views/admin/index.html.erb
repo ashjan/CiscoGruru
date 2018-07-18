@@ -1,0 +1,168 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Current Time: <%= l(Time.zone.now) %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped table-condensed">
+        <tbody>
+          <tr>
+            <td>Users</td>
+            <td><%= User.count %></td>
+          </tr>
+          <tr>
+            <td>Invited Users</td>
+            <td><%= link_to User.where(invited: true).count, "/yonetim/users?account_filter=invited" %></td>
+          </tr>
+          <tr>
+            <td>Pro Accounts</td>
+            <td><%= link_to Account.pro.count, "/yonetim/users?account_filter=pro" %></td>
+          </tr>
+          <tr>
+            <td>Translators</td>
+            <td><%= link_to Account.translator.count, "/yonetim/users?account_filter=translator" %></td>
+          </tr>
+          <tr>
+            <td>OAuth Profiles</td>
+            <td><%= OAuthProfile.count %></td>
+          </tr>
+          <tr>
+            <td>Google</td>
+            <td><%= OAuthProfile.where(provider: "google_oauth2").count %></td>
+          </tr>
+          <tr>
+            <td>Github</td>
+            <td><%= OAuthProfile.where(provider: "github").count %></td>
+          </tr>
+          <tr>
+            <td>Twitter</td>
+            <td><%= OAuthProfile.where(provider: "twitter").count %></td>
+          </tr>
+          <tr>
+            <td>VK</td>
+            <td><%= OAuthProfile.where(provider: "vkontakte").count %></td>
+          </tr>
+          <tr>
+            <td>Yandex</td>
+            <td><%= OAuthProfile.where(provider: "yandex").count %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <%= line_chart [1, 2].map {|x|
+      if x == 1
+        {name: 'Registrations', data: User.where('created_at > ?', 1.month.ago).group_by_day(:created_at)}
+      else
+        {name: 'Logins', data: Login.where('logintime > ?', 1.month.ago).group_by_day(:logintime)}
+      end
+    } %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped table-condensed">
+        <tbody>
+          <tr>
+            <td>Schemata</td>
+            <td><%= Schema.count %></td>
+          </tr>
+          <tr>
+            <td>MySQL</td>
+            <td><%= link_to Schema.where(db: 'mysql').count, "/yonetim/schemata?db_filter=mysql" %></td>
+          </tr>
+          <tr>
+            <td>Postgres</td>
+            <td><%= link_to Schema.where(db: 'postgres').count, "/yonetim/schemata?db_filter=postgres" %></td>
+          </tr>
+          <tr>
+            <td>MS SQL Server</td>
+            <td><%= link_to Schema.where(db: 'mssql').count, "/yonetim/schemata?db_filter=mssql" %></td>
+          </tr>
+          <tr>
+            <td>Oracle</td>
+            <td><%= link_to Schema.where(db: 'oracle').count, "/yonetim/schemata?db_filter=oracle" %></td>
+          </tr>
+          <tr>
+            <td>SQLite</td>
+            <td><%= link_to Schema.where(db: 'sqlite').count, "/yonetim/schemata?db_filter=sqlite" %></td>
+          </tr>
+          <tr>
+            <td>Schema Versions</td>
+            <td><%= SchemaVersion.count %></td>
+          </tr>
+          <tr>
+            <td>Templates</td>
+            <td><%= Schema.templates.count %></td>
+          </tr>
+          <tr>
+            <td>Deleted</td>
+            <td><%= Schema.where(deleted: true).count %></td>
+          </tr>
+          <tr>
+            <td>Comments</td>
+            <td><%= SchemaComment.count %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <%= line_chart ['all', 'mysql', 'postgres', 'mssql', 'oracle', 'sqlite'].map {|db|
+        case db
+        when 'all'
+          {name: 'All', data: Schema.where('created_at > ?', 1.month.ago).group_by_day(:created_at)}
+        else
+          {name: db, data: Schema.where(db: db).where('created_at > ?', 1.month.ago).group_by_day(:created_at)}
+        end
+      } %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped table-condensed">
+        <tbody>
+          <tr>
+            <td>Feedbacks</td>
+            <td><%= Feedback.count %></td>
+          </tr>
+          <tr>
+            <td>Unanswered</td>
+            <td><%= Feedback.where.not(answered: true).count %></td>
+          </tr>
+          <tr>
+            <td>Answered</td>
+            <td><%= Feedback.where(answered: true).count %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped table-condensed">
+        <tbody>
+          <tr>
+            <td>Old Schema Count</td>
+            <td><%= OldSchema.count %></td>
+          </tr>
+          <tr>
+            <td>Imported</td>
+            <td><%= OldSchema.where(imported: true).count %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

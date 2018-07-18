@@ -1,0 +1,25 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<tr>
+				<%= sortable_header 'id', 'id' %>
+				<%= sortable_header 'User', 'user_id' %>
+				<%= sortable_header 'Schema', 'schema_id' %>
+				<th>Content</th>
+				<%= sortable_header 'Date', 'created_at' %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @comments.each do |comment| %>
+			<tr>
+				<td><%= comment.id %></td>
+				<td><span style="white-space: nowrap"><%= link_to comment.user.username, "/yonetim/user/#{comment.user.id}" %></span></td>
+				<td><%= link_to comment.schema.title, "/yonetim/schema/#{comment.schema.id}" %></td>
+				<td><%= comment.contents %></td>
+				<td><span style="white-space: nowrap"><%= l(comment.created_at, format: :full) %></span></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= paginate @comments %>

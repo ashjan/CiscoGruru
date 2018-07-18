@@ -1,0 +1,45 @@
+<div class="horizontal-form">
+	<div class="info-text">
+		{{t 'dialog.share_info'}}
+	</div>
+	<div class="field topspacelow">
+		<label for="" class="control-label">{{t 'dialog.share_email'}}</label>
+		<input type="text" name="share-email" id="share-email" placeholder="E-mail address" autofocus>
+	</div>
+	<div class="field">
+		<label for="share-options" class="control-label">{{t 'dialog.share_access'}}</label>
+		<select id="share-options">
+			<option value="0">{{t 'dialog.share_read_only'}}</option>
+			<option value="1">{{t 'dialog.share_read_write'}}</option>
+		</select>
+	</div>
+	<div class="field">
+		<label for="send-invitation-email" class="checkbox-label">
+			<input type="checkbox"
+			       checked="checked" 
+			       id="send-invitation-email" />
+		    <span>{{t 'dialog.share_send_email'}}</span>
+		</label>
+	</div>
+	<div class="field topspacelow">
+		<button class="btn invite">{{t 'dialog.share_invite_button'}}</button>
+	</div>
+	<br>
+	<div class="info-text">
+		<h3>{{t 'dialog.share_collaborators'}}</h3>
+	</div>
+</div>
+<div class="collaborator-list">
+	<table>
+		<tbody>
+			{{#collaborators}}
+			<tr>
+				<td><img src="{{ avatar }}" class="avatar" width="24" height="24"></td>
+				<td><span class="email">{{ email }}</span></td>
+				<td><span class="access label-default">{{ access_str }}</span></td>
+				<td><i class="icon-trash delete-collaborator" title="Remove Collaborator" data-email="{{ email }}"></i></td>
+			</tr>
+			{{/collaborators}}
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,1888 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_tree ./site
+ *= require font-awesome.min
+ *= require jquery.fancybox
+ *= require_self
+ */
+
+$navbar-default-bg: #dddddd;
+$navbar-border-radius: 0;
+// $navbar-margin-bottom: 0px;
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+$btn-border-radius-base: 0;
+$btn-border-radius-large: 0;
+$btn-border-radius-small: 0;
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Rails scaffold style compatibility */
+.field_with_errors {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}
+
+$dbdesigner-blue: #2F89DC;
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #ddd;
+  border-top: 2px solid $dbdesigner-blue;
+
+  div.facebook-wrapper {
+    overflow: hidden;
+  }
+}
+
+/* Landing page styles */
+
+div.slogan {
+  // text-align: center;
+  h1 {
+    font-size: 48px;
+    vertical-align: bottom;
+    img {
+      vertical-align: bottom;
+    }
+  }
+  small {
+    font-family: monospace;
+    font-size: 15px;
+    color: #22bb22;
+    background-color: #ffffff;
+    display: inline-block;
+  }
+}
+
+div.content-container {
+  margin-top: 20px;
+}
+
+div.landing-block {
+  margin-top: 0px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background-color: #eee;
+  min-height: 300px;
+  background-image: url('/site/jumbotron-bg.png');
+  background-size: cover;
+}
+
+div.landing-jumbotron {
+  position: relative;
+  div.toolbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+nav.navbar {
+  border-bottom: none;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body {
+  // padding: 60px 15px 0;
+}
+.footer > .container .text-muted {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 0.7em;
+}
+
+.footer > .container {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-left: 15px;
+  a, p, blockquote {
+    font-size: 0.9em;
+  }
+  div.flags {
+    margin-bottom: 10px;
+  }
+}
+
+i.fa-heart {
+  color: #DC272C;
+}
+
+code {
+  font-size: 80%;
+}
+
+/* Account page */
+div.account-fields-edit {
+  display: none;
+}
+
+button.save-account,
+span.cancel-edit-account {
+  display: none;
+}
+
+/* Pricing Page */
+
+.panel-best-price {
+  .panel-heading {
+    background-image: none;
+    background-color: $dbdesigner-blue;
+    color: #F0F0F0;
+  }
+  border-color: $dbdesigner-blue;
+}
+
+tfoot.info-table-footer {
+  td {
+    background-color: #E0E0E0;
+  }
+
+  .tfooter-cell {
+    background-color: #D0D0D0;
+    text-align: right;
+  }
+}
+
+td.shrink {
+  width: 1%;
+}
+
+div.dimodelo {
+  margin-top: 10px;
+  background-color: #F0F0F0;
+  text-align: center;
+  img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.dimodelo-image {
+  cursor: pointer;
+}
+
+
+
+.article-list-item {
+  margin-bottom: 60px;
+  font-size: 14px;
+}
+
+.article-list-item__meta {
+  margin-bottom: 1em;
+  cursor: default;
+  color: #666;
+}
+
+.article-placeholder-image {
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.article-list-item__brief {
+  font-size: 1.1428em;
+}
+
+.article-contents {
+  font-size: 1.1428em;
+}
+
+.checkbox-label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*
+  generated at
+  http://spritegen.website-performance.org
+*/
+/*
+.flag {
+    background-image: url("/flags/flags-spritesheet.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.sprite {
+    background-image: url("/flags-spritesheet.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.sprite-bn {
+    width: 16px;
+    height: 11px;
+    background-position: -4px -4px;
+}
+
+.sprite-br {
+    width: 16px;
+    height: 11px;
+    background-position: -28px -4px;
+}
+
+.sprite-catalonia {
+    width: 16px;
+    height: 11px;
+    background-position: -53px -5px;
+}
+
+.sprite-cs {
+    width: 16px;
+    height: 11px;
+    background-position: -79px -5px;
+}
+
+.sprite-de {
+    width: 16px;
+    height: 11px;
+    background-position: -5px -26px;
+}
+
+.sprite-dk {
+    width: 16px;
+    height: 11px;
+    background-position: -31px -26px;
+}
+
+.sprite-eo {
+    width: 16px;
+    height: 11px;
+    background-position: -57px -26px;
+}
+
+.sprite-es {
+    width: 16px;
+    height: 11px;
+    background-position: -83px -26px;
+}
+
+.sprite-fi {
+    width: 16px;
+    height: 11px;
+    background-position: -5px -47px;
+}
+
+.sprite-fr {
+    width: 16px;
+    height: 11px;
+    background-position: -31px -47px;
+}
+
+.sprite-gb {
+    width: 16px;
+    height: 11px;
+    background-position: -57px -47px;
+}
+
+.sprite-gr {
+    width: 16px;
+    height: 11px;
+    background-position: -83px -47px;
+}
+
+.sprite-id {
+    width: 16px;
+    height: 11px;
+    background-position: -5px -68px;
+}
+
+.sprite-ir {
+    width: 16px;
+    height: 11px;
+    background-position: -31px -68px;
+}
+
+.sprite-it {
+    width: 16px;
+    height: 11px;
+    background-position: -57px -68px;
+}
+
+.sprite-jp {
+    width: 16px;
+    height: 11px;
+    background-position: -83px -68px;
+}
+
+.sprite-kannada {
+    width: 16px;
+    height: 11px;
+    background-position: -5px -89px;
+}
+
+.sprite-nl {
+    width: 16px;
+    height: 11px;
+    background-position: -31px -89px;
+}
+
+.sprite-no {
+    width: 16px;
+    height: 11px;
+    background-position: -57px -89px;
+}
+
+.sprite-pl {
+    width: 16px;
+    height: 11px;
+    background-position: -83px -89px;
+}
+
+.sprite-ru {
+    width: 16px;
+    height: 11px;
+    background-position: -105px -5px;
+}
+
+.sprite-tr {
+    width: 16px;
+    height: 11px;
+    background-position: -109px -26px;
+}
+
+.sprite-ua {
+    width: 16px;
+    height: 11px;
+    background-position: -109px -47px;
+}
+
+.sprite-vn {
+    width: 16px;
+    height: 11px;
+    background-position: -109px -68px;
+}
+
+*/
+
+.flag {
+    background-image: url("/flags/flags-spritesheet-v1.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.sprite-ad {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -2px;
+}
+
+.sprite-ae {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -2px;
+}
+
+.sprite-af {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -2px;
+}
+
+.sprite-ag {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -2px;
+}
+
+.sprite-ai {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -2px;
+}
+
+.sprite-al {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -2px;
+}
+
+.sprite-am {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -2px;
+}
+
+.sprite-an {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -2px;
+}
+
+.sprite-ao {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -2px;
+}
+
+.sprite-ar {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -2px;
+}
+
+.sprite-as {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -2px;
+}
+
+.sprite-at {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -2px;
+}
+
+.sprite-au {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -2px;
+}
+
+.sprite-aw {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -17px;
+}
+
+.sprite-ax {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -17px;
+}
+
+.sprite-az {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -17px;
+}
+
+.sprite-ba {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -17px;
+}
+
+.sprite-bb {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -17px;
+}
+
+.sprite-bd {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -17px;
+}
+
+.sprite-be {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -17px;
+}
+
+.sprite-bf {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -17px;
+}
+
+.sprite-bg {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -17px;
+}
+
+.sprite-bh {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -17px;
+}
+
+.sprite-bi {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -17px;
+}
+
+.sprite-bj {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -17px;
+}
+
+.sprite-bm {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -17px;
+}
+
+.sprite-bn {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -32px;
+}
+
+.sprite-bo {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -32px;
+}
+
+.sprite-br {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -32px;
+}
+
+.sprite-bs {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -32px;
+}
+
+.sprite-bt {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -32px;
+}
+
+.sprite-bv {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -32px;
+}
+
+.sprite-bw {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -32px;
+}
+
+.sprite-by {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -32px;
+}
+
+.sprite-bz {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -32px;
+}
+
+.sprite-ca {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -32px;
+}
+
+.sprite-catalonia {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -32px;
+}
+
+.sprite-cc {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -32px;
+}
+
+.sprite-cd {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -32px;
+}
+
+.sprite-cf {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -47px;
+}
+
+.sprite-cg {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -47px;
+}
+
+.sprite-ch {
+    width: 11px;
+    height: 11px;
+    background-position: -42px -47px;
+}
+
+.sprite-ci {
+    width: 16px;
+    height: 11px;
+    background-position: -57px -47px;
+}
+
+.sprite-ck {
+    width: 16px;
+    height: 11px;
+    background-position: -77px -47px;
+}
+
+.sprite-cl {
+    width: 16px;
+    height: 11px;
+    background-position: -97px -47px;
+}
+
+.sprite-cm {
+    width: 16px;
+    height: 11px;
+    background-position: -117px -47px;
+}
+
+.sprite-cn {
+    width: 16px;
+    height: 11px;
+    background-position: -137px -47px;
+}
+
+.sprite-co {
+    width: 16px;
+    height: 11px;
+    background-position: -157px -47px;
+}
+
+.sprite-cr {
+    width: 16px;
+    height: 11px;
+    background-position: -177px -47px;
+}
+
+.sprite-cs {
+    width: 16px;
+    height: 11px;
+    background-position: -197px -47px;
+}
+
+.sprite-cu {
+    width: 16px;
+    height: 11px;
+    background-position: -217px -47px;
+}
+
+.sprite-cv {
+    width: 16px;
+    height: 11px;
+    background-position: -237px -47px;
+}
+
+.sprite-cx {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -62px;
+}
+
+.sprite-cy {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -62px;
+}
+
+.sprite-cz {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -62px;
+}
+
+.sprite-de {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -62px;
+}
+
+.sprite-dj {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -62px;
+}
+
+.sprite-dk {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -62px;
+}
+
+.sprite-dm {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -62px;
+}
+
+.sprite-do {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -62px;
+}
+
+.sprite-dz {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -62px;
+}
+
+.sprite-ec {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -62px;
+}
+
+.sprite-ee {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -62px;
+}
+
+.sprite-eg {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -62px;
+}
+
+.sprite-eh {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -62px;
+}
+
+.sprite-england {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -77px;
+}
+
+.sprite-eo {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -77px;
+}
+
+.sprite-er {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -77px;
+}
+
+.sprite-es {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -77px;
+}
+
+.sprite-et {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -77px;
+}
+
+.sprite-europeanunion {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -77px;
+}
+
+.sprite-fam {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -77px;
+}
+
+.sprite-fi {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -77px;
+}
+
+.sprite-fj {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -77px;
+}
+
+.sprite-fk {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -77px;
+}
+
+.sprite-fm {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -77px;
+}
+
+.sprite-fo {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -77px;
+}
+
+.sprite-fr {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -77px;
+}
+
+.sprite-ga {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -92px;
+}
+
+.sprite-gb {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -92px;
+}
+
+.sprite-gd {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -92px;
+}
+
+.sprite-ge {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -92px;
+}
+
+.sprite-gf {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -92px;
+}
+
+.sprite-gh {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -92px;
+}
+
+.sprite-gi {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -92px;
+}
+
+.sprite-gl {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -92px;
+}
+
+.sprite-gm {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -92px;
+}
+
+.sprite-gn {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -92px;
+}
+
+.sprite-gp {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -92px;
+}
+
+.sprite-gq {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -92px;
+}
+
+.sprite-gr {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -92px;
+}
+
+.sprite-gs {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -107px;
+}
+
+.sprite-gt {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -107px;
+}
+
+.sprite-gu {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -107px;
+}
+
+.sprite-gw {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -107px;
+}
+
+.sprite-gy {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -107px;
+}
+
+.sprite-hk {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -107px;
+}
+
+.sprite-hm {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -107px;
+}
+
+.sprite-hn {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -107px;
+}
+
+.sprite-hr {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -107px;
+}
+
+.sprite-ht {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -107px;
+}
+
+.sprite-hu {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -107px;
+}
+
+.sprite-id {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -107px;
+}
+
+.sprite-ie {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -107px;
+}
+
+.sprite-il {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -122px;
+}
+
+.sprite-in {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -122px;
+}
+
+.sprite-io {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -122px;
+}
+
+.sprite-iq {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -122px;
+}
+
+.sprite-ir {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -122px;
+}
+
+.sprite-is {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -122px;
+}
+
+.sprite-it {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -122px;
+}
+
+.sprite-jm {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -122px;
+}
+
+.sprite-jo {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -122px;
+}
+
+.sprite-jp {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -122px;
+}
+
+.sprite-kannada {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -122px;
+}
+
+.sprite-ke {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -122px;
+}
+
+.sprite-kg {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -122px;
+}
+
+.sprite-kh {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -137px;
+}
+
+.sprite-ki {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -137px;
+}
+
+.sprite-km {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -137px;
+}
+
+.sprite-kn {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -137px;
+}
+
+.sprite-kp {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -137px;
+}
+
+.sprite-kr {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -137px;
+}
+
+.sprite-kw {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -137px;
+}
+
+.sprite-ky {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -137px;
+}
+
+.sprite-kz {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -137px;
+}
+
+.sprite-la {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -137px;
+}
+
+.sprite-lb {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -137px;
+}
+
+.sprite-lc {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -137px;
+}
+
+.sprite-li {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -137px;
+}
+
+.sprite-lk {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -152px;
+}
+
+.sprite-lr {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -152px;
+}
+
+.sprite-ls {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -152px;
+}
+
+.sprite-lt {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -152px;
+}
+
+.sprite-lu {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -152px;
+}
+
+.sprite-lv {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -152px;
+}
+
+.sprite-ly {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -152px;
+}
+
+.sprite-ma {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -152px;
+}
+
+.sprite-mc {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -152px;
+}
+
+.sprite-md {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -152px;
+}
+
+.sprite-me {
+    width: 16px;
+    height: 12px;
+    background-position: -202px -152px;
+}
+
+.sprite-mg {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -152px;
+}
+
+.sprite-mh {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -152px;
+}
+
+.sprite-mk {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -167px;
+}
+
+.sprite-ml {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -167px;
+}
+
+.sprite-mm {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -167px;
+}
+
+.sprite-mn {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -167px;
+}
+
+.sprite-mo {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -167px;
+}
+
+.sprite-mp {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -167px;
+}
+
+.sprite-mq {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -167px;
+}
+
+.sprite-mr {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -167px;
+}
+
+.sprite-ms {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -167px;
+}
+
+.sprite-mt {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -167px;
+}
+
+.sprite-mu {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -167px;
+}
+
+.sprite-mv {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -167px;
+}
+
+.sprite-mw {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -182px;
+}
+
+.sprite-mx {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -182px;
+}
+
+.sprite-my {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -182px;
+}
+
+.sprite-mz {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -182px;
+}
+
+.sprite-na {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -182px;
+}
+
+.sprite-nc {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -182px;
+}
+
+.sprite-ne {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -182px;
+}
+
+.sprite-nf {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -182px;
+}
+
+.sprite-ng {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -182px;
+}
+
+.sprite-ni {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -182px;
+}
+
+.sprite-nl {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -182px;
+}
+
+.sprite-no {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -182px;
+}
+
+.sprite-np {
+    width: 9px;
+    height: 11px;
+    background-position: -262px -2px;
+}
+
+.sprite-nr {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -182px;
+}
+
+.sprite-nu {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -197px;
+}
+
+.sprite-nz {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -197px;
+}
+
+.sprite-om {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -197px;
+}
+
+.sprite-pa {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -197px;
+}
+
+.sprite-pe {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -197px;
+}
+
+.sprite-pf {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -197px;
+}
+
+.sprite-pg {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -197px;
+}
+
+.sprite-ph {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -197px;
+}
+
+.sprite-pk {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -197px;
+}
+
+.sprite-pl {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -197px;
+}
+
+.sprite-pm {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -197px;
+}
+
+.sprite-pn {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -197px;
+}
+
+.sprite-pr {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -197px;
+}
+
+.sprite-ps {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -212px;
+}
+
+.sprite-pt {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -212px;
+}
+
+.sprite-pw {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -212px;
+}
+
+.sprite-py {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -212px;
+}
+
+.sprite-qa {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -212px;
+}
+
+.sprite-re {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -212px;
+}
+
+.sprite-ro {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -212px;
+}
+
+.sprite-rs {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -212px;
+}
+
+.sprite-ru {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -212px;
+}
+
+.sprite-rw {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -212px;
+}
+
+.sprite-sa {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -212px;
+}
+
+.sprite-sb {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -212px;
+}
+
+.sprite-sc {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -212px;
+}
+
+.sprite-scotland {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -227px;
+}
+
+.sprite-sd {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -227px;
+}
+
+.sprite-se {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -227px;
+}
+
+.sprite-sg {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -227px;
+}
+
+.sprite-sh {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -227px;
+}
+
+.sprite-si {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -227px;
+}
+
+.sprite-sj {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -227px;
+}
+
+.sprite-sk {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -227px;
+}
+
+.sprite-sl {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -227px;
+}
+
+.sprite-sm {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -227px;
+}
+
+.sprite-sn {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -227px;
+}
+
+.sprite-so {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -227px;
+}
+
+.sprite-sr {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -227px;
+}
+
+.sprite-st {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -242px;
+}
+
+.sprite-sv {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -242px;
+}
+
+.sprite-sy {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -242px;
+}
+
+.sprite-sz {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -242px;
+}
+
+.sprite-tc {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -242px;
+}
+
+.sprite-td {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -242px;
+}
+
+.sprite-tf {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -242px;
+}
+
+.sprite-tg {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -242px;
+}
+
+.sprite-th {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -242px;
+}
+
+.sprite-tj {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -242px;
+}
+
+.sprite-tk {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -242px;
+}
+
+.sprite-tl {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -242px;
+}
+
+.sprite-tm {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -242px;
+}
+
+.sprite-tn {
+    width: 16px;
+    height: 11px;
+    background-position: -2px -257px;
+}
+
+.sprite-to {
+    width: 16px;
+    height: 11px;
+    background-position: -22px -257px;
+}
+
+.sprite-tr {
+    width: 16px;
+    height: 11px;
+    background-position: -42px -257px;
+}
+
+.sprite-tt {
+    width: 16px;
+    height: 11px;
+    background-position: -62px -257px;
+}
+
+.sprite-tv {
+    width: 16px;
+    height: 11px;
+    background-position: -82px -257px;
+}
+
+.sprite-tw {
+    width: 16px;
+    height: 11px;
+    background-position: -102px -257px;
+}
+
+.sprite-tz {
+    width: 16px;
+    height: 11px;
+    background-position: -122px -257px;
+}
+
+.sprite-ua {
+    width: 16px;
+    height: 11px;
+    background-position: -142px -257px;
+}
+
+.sprite-ug {
+    width: 16px;
+    height: 11px;
+    background-position: -162px -257px;
+}
+
+.sprite-um {
+    width: 16px;
+    height: 11px;
+    background-position: -182px -257px;
+}
+
+.sprite-us {
+    width: 16px;
+    height: 11px;
+    background-position: -202px -257px;
+}
+
+.sprite-uy {
+    width: 16px;
+    height: 11px;
+    background-position: -222px -257px;
+}
+
+.sprite-uz {
+    width: 16px;
+    height: 11px;
+    background-position: -242px -257px;
+}
+
+.sprite-va {
+    width: 16px;
+    height: 11px;
+    background-position: -275px -2px;
+}
+
+.sprite-vc {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -17px;
+}
+
+.sprite-ve {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -32px;
+}
+
+.sprite-vg {
+    width: 16px;
+    height: 11px;
+    background-position: -257px -47px;
+}
+
+.sprite-vi {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -62px;
+}
+
+.sprite-vn {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -77px;
+}
+
+.sprite-vu {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -92px;
+}
+
+.sprite-wales {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -107px;
+}
+
+.sprite-wf {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -122px;
+}
+
+.sprite-ws {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -137px;
+}
+
+.sprite-ye {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -152px;
+}
+
+.sprite-yt {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -167px;
+}
+
+.sprite-za {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -182px;
+}
+
+.sprite-zm {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -197px;
+}
+
+.sprite-zw {
+    width: 16px;
+    height: 11px;
+    background-position: -262px -212px;
+}

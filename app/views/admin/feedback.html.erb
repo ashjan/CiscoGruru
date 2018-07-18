@@ -1,0 +1,40 @@
+<div class="table-responsive">
+	<table class="table">
+		<tbody>
+			<tr>
+				<td>Username</td>
+				<td><%= @feedback.username %></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<% if @feedback.user %>
+				<td><a href="/yonetim/user/<%= @feedback.user.id %>"><%= @feedback.user_email %></a></td>
+				<% else %>
+				<td><%= @feedback.user_email %></td>
+				<% end %>
+			</tr>
+			<tr>
+				<td>User agent</td>
+				<td>
+					<span class="label label-default"><%= @feedback.browser %></span>
+					version <span class="label label-default"><%= @feedback.version %></span>
+					on <span class="label label-default"><%= @feedback.platform %></span>
+				</td>
+			</tr>
+			<tr>
+				<td>Message</td>
+				<td><%= simple_format @feedback.message %></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<% if @feedback.answered? %>
+						<span class="label label-default">Answered</span>
+					<% else %>
+						<%= link_to 'Toggle Answered', "/feedbacks/#{@feedback.id}/toggle_answered", class: 'btn btn-default', method: :post %>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

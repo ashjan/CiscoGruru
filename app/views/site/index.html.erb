@@ -1,0 +1,102 @@
+<% content_for :title do %>Free Online Database Design Tool - <% end %>
+<div class="container-fluid landing-block hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="landing-jumbotron">
+          <div class="slogan">
+            <h1><img src="/dbdesigner_logo_grid.png" alt="DbDesigner logo" /> DbDesigner.net</h1>
+            <small>-- Online database schema designer</small>
+          </div>
+          <br>
+          <br>
+          <div>
+            <% if current_user.is_signed_in? %>
+              <%= link_to 'Go to Application', designer_path, class: 'btn btn-primary btn-lg' %>
+            <% else %>
+              <%= link_to 'Register', "https://www.dbdesigner.net/pricing", class: 'btn btn-primary btn-lg' %>
+              <br>
+              <br>
+              <%= link_to 'Login As Guest User', designer_path(landing_guest: true), class: 'btn btn-default btn' %>
+            <% end %>
+          </div>
+          <div class="toolbar">
+            <% if current_user.is_signed_in? %>
+              <%= link_to 'Account', user_account_path, class: "btn btn-default btn-lg" %>
+              <%= link_to 'Logout', '/logout', class: "btn btn-default btn-lg" %>
+            <% else %>
+              <a class="btn btn-default btn-lg" href="https://www.dbdesigner.net/pricing">Pricing</a>
+              <a class="btn btn-default btn-lg" href="https://www.dbdesigner.net/login">Login</a>
+              <a class="btn btn-default btn-lg" href="https://www.dbdesigner.net/registrations/new">Register</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <h2>About DbDesigner</h2>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <p>
+            DbDesigner is a web application which allows you to design your database schema without writing SQL.
+          </p>
+          <p>
+            You can design your database schema just like creating a UML diagram.<br>
+            When you are finished you can generate an SQL script for the following database engines:<br>
+            <ul>
+              <li>PostgreSQL</li>
+              <li>SQLite</li>
+              <li>MySQL&trade;</li>
+              <li>MSSql&trade;</li>
+              <li>Oracle<sup>&reg;</sup></li>
+            </ul>
+          </p>
+        </div>
+        <div class="col-md-6 col-sm-12">
+                <a href="/site/dbdesigner-screenshot-1-fs.png" class="fancybox">
+                  <img src="/site/dbdesigner-screenshot-1.png" alt="dbdesigner screenshot" class="img-responsive" />
+                </a>
+        </div>
+      </div>
+      <% if Rails.env.production? %>
+      <br>
+      <br>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- dbdesigner.net-landing-horizontal -->
+      <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-6627391487459892"
+      data-ad-slot="9983544399"
+      data-ad-format="auto"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <br>
+      <br>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1695136264032988',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

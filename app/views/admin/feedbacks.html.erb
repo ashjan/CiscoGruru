@@ -1,0 +1,30 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Subject</th>
+				<th>Date</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @feedbacks.each do |feedback| %>
+			<tr>
+				<% if feedback.user %>
+					<td><%= link_to feedback.username, "/yonetim/user/#{feedback.user.try(:id)}" %></td>
+				<% else %>
+					<td>Guest</td>
+				<% end %>
+				<td><%= feedback.subject %> <% if feedback.answered? %><span class="label label-default">Answered</span><% end %></td>
+				<td><%= l(feedback.created_at, format: :full) %></td>
+				<td>
+					<a href="/yonetim/feedback/<%= feedback.id %>" class="btn btn-xs btn-default">View</a>
+					<a href="mailto:<%= feedback.user_email %>" class="btn btn-xs btn-default">Mail</a>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= paginate @feedbacks %>

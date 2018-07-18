@@ -1,0 +1,15 @@
+New DbDesigner Feedback
+=======================
+
+username: <%= @user.username %>
+email:    <%= @user.email %>
+Subject:  <%= @feedback.subject %>
+Message:
+<%= @feedback.message %>
+
+-
+Additional User Info:
+This user has
+  <%= @user.feedbacks.count %> feedbacks,
+  <%= @user.own_schemas.count %> schemas;
+  registered at <%= l(@user.created_at) %>

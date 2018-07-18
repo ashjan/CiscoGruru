@@ -1,0 +1,49 @@
+<style>
+td:first-child {
+	width: 1%;
+	white-space: nowrap;
+	text-align: right;
+	padding-right: 10px;
+	font-weight: bold;
+}
+</style>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Schema <%= @schema.id %>
+		<div class="btn-group pull-right" role="group">
+	      <%= link_to 'Open Schema', "/designer/schema/#{@schema.id}?readonly=true", class: "btn btn-default btn-xs", target: "_blank" %>
+    	</div>
+	</div>
+	<table class="table">
+		<tbody>
+			<tr>
+				<td>Title</td>
+				<td colspan="2"><%= @schema.title %></td>
+			</tr>
+			<tr>
+				<td>Database type</td>
+				<td colspan="2"><span class="label label-default"><%= @schema.db %></span></td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td colspan="2"><%= @schema.description %></td>
+			</tr>
+			<tr>
+				<td>Created at</td>
+				<td colspan="2"><%= l(@schema.created_at, format: :full) %></td>
+			</tr>
+			<tr>
+				<td>Created by</td>
+				<td><a href="/yonetim/user/<%= @schema.owner.id %>"><%= @schema.owner.email %></a></td>
+                <td><%= l(@schema.owner.last_login_time, format: :full) %></td>
+			</tr>
+			<% @schema.users.each do |user| %>
+			<tr>
+				<td>Collaborator</td>
+				<td><a href="/yonetim/user/<%= user.id %>"><%= user.email %></a></td>
+                <td><%= l(user.last_login_time, format: :full) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

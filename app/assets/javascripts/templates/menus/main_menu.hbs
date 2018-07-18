@@ -1,0 +1,81 @@
+<ul class="menu" id="mainmenu" unselectable=on>
+    <li>
+    <span class="menu-item">{{t 'menu.schema'}}</span>
+    <ul class="submenu">
+        <li id="menu-item-schema-new">{{t 'menu.new'}}<span class=shortcut data-accel="ctrl+n">Ctrl+N</span></li>
+        <li id="menu-item-schema-load">{{t 'menu.load'}}<span class=shortcut data-accel="ctrl+l">Ctrl+L</span></li>
+        <li id="menu-item-schema-save">{{t 'menu.save'}}<span class=shortcut data-accel="ctrl+s">Ctrl+S</span></li>
+        <li id="menu-item-schema-save-as">{{t 'menu.save_as'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-schema-templates">{{t 'menu.templates'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-schema-properties">{{t 'menu.properties'}}</li>
+        <li id="menu-item-schema-share">{{t 'menu.share'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-schema-import">{{t 'menu.import'}}<span class=shortcut data-accel="ctrl+i">Ctrl+I</span></li>
+    </ul>
+    </li>
+    <li>
+    <span class="menu-item">{{t 'menu.edit'}}</span>
+    <ul class="submenu">
+        <li id="menu-item-edit-undo">{{t 'menu.undo'}}<span class=shortcut data-accel="ctrl+z">Ctrl+Z</span></li>
+        <li id="menu-item-edit-redo">{{t 'menu.redo'}}<span class=shortcut data-accel="ctrl+y">Ctrl+Y</span></li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-edit-select-all">{{t 'menu.select_all'}}<span class=shortcut data-accel="ctrl+a">Ctrl+A</span></li>
+        <li id="menu-item-edit-select-none">{{t 'menu.select_none'}}</li>
+        {{!
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-delete">Delete<span class=shortcut data-accel="del">Delete</span></li>
+        }}
+    </ul>
+    </li>
+    <li>
+    <span class="menu-item">{{t 'menu.insert'}}</span>
+    <ul class="submenu">
+        <li id="menu-item-insert-table">{{t 'menu.table'}}<span class=shortcut data-accel="alt+t">Alt+T</span></li>
+        <li id="menu-item-insert-note">{{t 'menu.note'}}<span class=shortcut data-accel="alt+n">Alt+N</span></li>
+    </ul>
+    </li>
+    <li>
+    <span class="menu-item">{{t 'menu.view'}}</span>
+    <ul class="submenu">
+        <li id="menu-item-view-minimap">{{t 'menu.hide_minimap'}}</li>
+        <li id="menu-item-view-sidebar"><span class="menu-caption">{{t 'menu.show_sidebar'}}</span> <span class=shortcut data-accel="alt+s">Alt+S</span></li>
+        <li id="menu-item-view-grid">{{t 'menu.hide_grid'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-view-sort">{{t 'menu.sort_items'}} <span class=shortcut data-accel="ctrl+1">Ctrl+1</span></li>
+        {{! <li id="menu-item-view-collapse">Collapse Tables</li> }}
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-view-line" class="has-submenu">
+        {{t 'menu.linetype'}}
+        <ul class="submenu second-lvl-menu">
+            <li id="menu-item-view-line-bezier">{{t 'menu.bezier'}}</li>
+            <li id="menu-item-view-line-cornered">{{t 'menu.cornered'}}</li>
+        </ul>
+        </li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-view-options">{{t 'menu.options'}}</li>
+    </ul>
+    </li>
+    <li>
+    <span class="menu-item">{{t 'menu.export'}}</span>
+    <ul class="submenu">
+        <li id="menu-item-export-sql">{{t 'menu.sql'}}<span class=shortcut data-accel="ctrl+e">Ctrl+E</span></li>
+        <li id="menu-item-export-image">{{t 'menu.image'}}</li>
+    </ul>
+    </li>
+    <li>
+    <span class="menu-item">{{t 'menu.help'}}</span>
+    <ul class="submenu">
+        <li id="menu-item-help-index">{{t 'menu.index'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-help-changes">{{t 'menu.changes'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-help-tutorial">{{ t 'menu.tutorial'}}</li>
+        <li id="menu-item-help-shortcuts">{{t 'menu.shortcuts'}}<span class="shortcut" data-accel="shift+/">?</span></li>
+        <li id="menu-item-help-feedback">{{t 'menu.feedback'}}</li>
+        <li class="menu-separator">&nbsp;</li>
+        <li id="menu-item-help-about">{{t 'menu.about'}}</li>
+    </ul>
+    </li>
+</ul>

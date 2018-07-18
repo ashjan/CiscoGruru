@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DbDesigner.net Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    "site", media: "all" %>
+  <%= javascript_include_tag "admin"  %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/yonetim">DbDesigner.net</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Users <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'User List', '/yonetim/users' %></li>
+            <li><%= link_to 'Feedbacks', '/yonetim/feedbacks' %></li>
+            <li><%= link_to 'Logins', '/yonetim/logins' %></li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <%= link_to '/yonetim/payments' do %>
+                Payments <span class="badge"><%= @payment_count %></span>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Schemata <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Schema List', '/yonetim/schemata' %></li>
+            <li><%= link_to 'Comments', '/yonetim/comments' %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Site <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Blog', '/yonetim/blog' %></li>
+            <li><%= link_to 'New Article', '/yonetim/blog/new' %></li>
+          </ul>
+        </li>
+      </ul>
+      <%= form_tag yonetim_search_path, method: :post, class: 'navbar-form navbar-left hidden-md hidden-sm' do %>
+        <div class="form-group">
+          <input type="text" class="form-control" name="query" placeholder="+username | email | @@oauth">
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-default">Search</button>
+          <%= link_to "Adv", yonetim_adv_search_path, class: "btn btn-default" %>
+        </div>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Logout', '/logout' %></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

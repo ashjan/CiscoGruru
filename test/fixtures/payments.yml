@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table name: payments
+#
+#  id                          :integer          not null, primary key
+#  user_id                     :integer
+#  account_id                  :integer
+#  sale_gross                  :float
+#  fee                         :float
+#  earnings                    :float
+#  payment_tax                 :float
+#  country                     :string
+#  currency                    :string
+#  paddle_order_id             :integer
+#  next_bill_date              :string
+#  paddle_subscription_id      :integer
+#  email                       :string
+#  paddle_subscription_plan_id :integer
+#  status                      :string
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  account_id: 
+  country: MyString
+  currency: MyString
+  sale_gross: 1.5
+  fee: 1.5
+  earnings: 1.5
+  paddle_order_id: 1
+  next_bill_date: MyString
+  paddle_subscription_id: 1
+  email: MyString
+  paddle_subscription_id: 1
+
+two:
+  user_id: 
+  account_id: 
+  country: MyString
+  currency: MyString
+  sale_gross: 1.5
+  fee: 1.5
+  earnings: 1.5
+  paddle_order_id: 1
+  next_bill_date: MyString
+  paddle_subscription_id: 1
+  email: MyString
+  paddle_subscription_id: 1

@@ -1,0 +1,43 @@
+<div class="table-responsive">
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<tr>
+				<%= sortable_header 'id', 'id' %>
+				<%= sortable_header 'User', 'user_id' %>
+				<th>Country</th>
+				<th>Sale Gross</th>
+				<th>Fee</th>
+				<th>Tax</th>
+				<th>Earnings</th>
+				<th>Date</th>
+				<th>Next Bill Date</th>
+			</tr>
+		</thead>
+		<tfoot class="info-table-footer">
+			<tr>
+				<td colspan="3" class="tfooter-cell"><strong>Total</strong></td>
+				<td><%= @payment_totals[:sale_gross] %> USD</td>
+				<td><%= @payment_totals[:fee] %> USD</td>
+				<td><%= @payment_totals[:payment_tax] %> USD</td>
+				<td><%= @payment_totals[:earnings] %> USD</td>
+				<td colspan="2" class="tfooter-cell"></td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<% @payments.each do |payment| %>
+			<tr>
+				<td><%= payment.id %></td>
+				<td><span style="white-space: nowrap"><%= link_to payment.user.username, "/yonetim/user/#{payment.user.id}" %></span></td>
+				<td><%= payment.country %></td>
+				<td><%= payment.sale_gross %> <%= payment.currency %></td>
+				<td><%= payment.fee %> <%= payment.currency %></td>
+				<td><%= payment.payment_tax %> <%= payment.currency %></td>
+				<td><%= payment.earnings %> <%= payment.currency %></td>
+				<td><span style="white-space: nowrap"><%= l(payment.created_at, format: :full) %></span></td>
+				<td><%= payment.next_bill_date %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= paginate @payments %>

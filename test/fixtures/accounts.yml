@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id                          :integer          not null, primary key
+#  account_type                :integer          default(0)
+#  next_payment_date           :datetime
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  update_url                  :string
+#  cancel_url                  :string
+#  subscription_status         :string
+#  next_bill_date              :string
+#  paddle_subscription_id      :integer
+#  paddle_subscription_plan_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_type: 1
+  next_payment_date: 2015-05-12 15:42:56
+
+two:
+  account_type: 1
+  next_payment_date: 2015-05-12 15:42:56

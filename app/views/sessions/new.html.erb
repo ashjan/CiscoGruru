@@ -1,0 +1,68 @@
+<% content_for :title do %>Login | <% end %>
+<div class="container content-container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">Welcome back to DbDesigner</div>
+        </div>
+        <div class="panel-body">
+          <% if flash[:alert] %>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Error!</strong> <%= flash[:alert] %>
+            </div>
+          <% end %>
+          <% if flash[:notice] %>
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <%= form_tag sessions_path do |f| %>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <%= text_field_tag :email, '', class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <%= password_field_tag :password, '', class: 'form-control' %>
+              </div>
+            </div>
+            <br>
+            <%= submit_tag 'Signin', class: "btn btn-primary" %>
+            <%= link_to "Signin as Guest User", designer_path(login_guest: true), class: 'btn btn-default' %>
+            <br><br>
+            <%= link_to "I don't have an account", new_registration_path, class: '' %>
+            &nbsp;&nbsp;
+            <%= link_to "I forgot my password", '/password-recovery/remind-password', class: '' %>
+            <hr>
+            Or signin using:<br><br>
+            <%= link_to 'https://www.dbdesigner.net/auth/github?dbdesigner_action=login', class: 'btn btn-default' do %>
+              <i class="fa fa-github-alt"></i> Github
+            <% end %>
+            <%= link_to 'https://www.dbdesigner.net/auth/google_oauth2?dbdesigner_action=login', class: 'btn btn-default' do %>
+              <i class="fa fa-google-plus"></i> Google
+            <% end %>
+            <%= link_to 'https://www.dbdesigner.net/auth/twitter?dbdesigner_action=login', class: 'btn btn-default' do %>
+              <i class="fa fa-twitter"></i> Twitter
+            <% end %>
+            <%= link_to 'https://www.dbdesigner.net/auth/vkontakte?dbdesigner_action=login', class: 'btn btn-default' do %>
+              <i class="fa fa-vk"></i> VKontakte
+            <% end %>
+            <%= link_to 'https://www.dbdesigner.net/auth/yandex?dbdesigner_action=login', class: 'btn btn-default' do %>
+              <i class="fa fa-yandex"></i>
+              Yandex
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

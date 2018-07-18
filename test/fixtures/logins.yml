@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: logins
+#
+#  id               :integer          not null, primary key
+#  user_id          :integer
+#  logintime        :datetime
+#  user_agent       :string
+#  ip               :string
+#  oauth_profile_id :integer
+#  browser          :string
+#  version          :string
+#  platform         :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  logintime: 2015-06-18 16:30:57
+  user_agent: MyString
+  ip: MyString
+  oauth_profile_id: 
+
+two:
+  user_id: 
+  logintime: 2015-06-18 16:30:57
+  user_agent: MyString
+  ip: MyString
+  oauth_profile_id: 

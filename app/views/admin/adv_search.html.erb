@@ -1,0 +1,48 @@
+<div class="page-header">
+	<h1 class="page-title">Advanced Search</h1>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<% if @alert %>
+			<div class="alert alert-warning alert-dismissible" role="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <%= @alert %>
+			</div>
+		<% end %>
+		<%= form_tag yonetim_adv_search_path, method: :post, class: '' do %>
+		<div class="form-group">
+			<label for="schema">Schema Title</label>
+			<%= text_field_tag :schema, @schema, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<label for="username">Username</label>
+			<%= text_field_tag :username, @username, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<label for="email">E-mail Address</label>
+			<%= text_field_tag :email, @email, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<label for="oauth">Social Media Username</label>
+			<%= text_field_tag :oauth, @oauth, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<label for="reg-year">Registered At</label>
+			<select name="reg-year" id="reg-year" class="form-control" disabled>
+				<option value="0">Anytime</option>
+				<option value="2015_1">2015/Q1</option>
+				<option value="2015_2">2015/Q2</option>
+				<option value="2015_3">2015/Q3</option>
+				<option value="2015_4">2015/Q4</option>
+				<option value="2016_1">2016/Q1</option>
+				<option value="2016_2">2016/Q2</option>
+				<option value="2016_3">2016/Q3</option>
+				<option value="2016_4">2016/Q4</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary">Search</button>
+		</div>
+		<% end %>
+	</div>
+</div>

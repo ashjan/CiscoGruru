@@ -1,0 +1,12 @@
+/var/www/dbdesigner.net/shared/log/*log {
+    daily
+    dateext
+    dateformat -%Y-%m-%d
+	extension .log
+    missingok
+    rotate 365
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}

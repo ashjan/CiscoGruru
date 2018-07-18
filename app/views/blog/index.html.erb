@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="page-header">
+        <h1>DbDesigner Blog</h1>
+      </div>
+
+      <% @articles.each do |article| %>
+      <div class="article-list-item">
+        <h2><%= link_to article.title, article.url %></h2>
+        <div class="article-list-item__meta">
+          <i class="fa fa-calendar"></i> <i><%= l(article.created_at, format: :short) %></i>
+          <% if article.is_sponsored? %>
+            &nbsp;&nbsp;<span class="label label-default">SPONSORED</span>
+          <% end %>
+        </div>
+        <div class="article-list-item__brief">
+          <%= raw article.brief_html %>
+        </div>
+        <%= link_to article.url do %>
+          Read More <i class="fa fa-long-arrow-right"></i>
+        <% end %>
+      </div>
+      <% end %>
+
+    </div>
+    <div class="dimodelo hidden-sm hidden-xs col-md-3">
+      <a href="http://dimodelo.com/?utm_source=dbdesigner" target="_blank"><img src="/site/dimodelo.jpg" alt="Data Warehouse Automation" class="dimodelo-image" ></a>
+    </div>
+  </div>
+</div>
